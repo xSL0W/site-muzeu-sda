@@ -15,12 +15,6 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-if($link === true){
-    echo "ok";
-}
-else 
-{
-    echo "not ok";
-}
+
 
 ?>

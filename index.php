@@ -1,6 +1,11 @@
 <?php
-include 'database.php';
+#include 'database.php';
+#include 'login.php';
+session_start();
+
 ?>
+
+
 
 <!--
 
@@ -46,18 +51,21 @@ ClassicEditor
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">
+                <?php echo "Hello, " .  htmlspecialchars(empty($_SESSION["email"]) ? "guest" : $_SESSION["email"]); ?>
                 <?php
-                    $con = newCon();
-                    $res = $con->query("SELECT `title` FROM `dashboard` WHERE `id`=1;");
 
-                    if ($res)
-                    {
-                        $row = $res->fetch_row();
-                        echo $row[0];
-                    }
-                    
-                    $res->close();
-                    closeCon($con);  
+                
+                  // $con = newCon();
+                  // $res = $con->query("SELECT `title` FROM `dashboard` WHERE `id`=1;");
+
+                  // if ($res)
+                  // {
+                  //     $row = $res->fetch_row();
+                  //     echo $row[0];
+                  // }
+                  // 
+                  // $res->close();
+                  // closeCon($con);  
                 ?>
                 </a>
                 
@@ -67,7 +75,10 @@ ClassicEditor
                         <li class="nav-item"><a class="nav-link" href="#about">Despre</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Informatii Generale</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Galerie</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li>           
+                        <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li>     
+                        <?php 
+                            echo empty($_SESSION["email"]) ? "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">Login</a></li>" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"logout.php\">Logout</a></li>"; 
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -237,17 +248,17 @@ Dintre toate muzeele provinciale din întinsul ţării româneşti, pe lângă c
                 <div class="container px-4 px-lg-5">
                     <div class="small text-center text-muted">
                         <?php
-                            $con = newCon();
-                            $res = $con->query("SELECT `footer` FROM `dashboard` WHERE `id`=1;");
+                         //  $con = newCon();
+                         //  $res = $con->query("SELECT `footer` FROM `dashboard` WHERE `id`=1;");
 
-                            if ($res)
-                            {
-                                $row = $res->fetch_row();
-                                echo $row[0];
-                            }
-                            
-                            $res->close();
-                            closeCon($con);           
+                         //  if ($res)
+                         //  {
+                         //      $row = $res->fetch_row();
+                         //      echo $row[0];
+                         //  }
+                         //  
+                         //  $res->close();
+                         //  closeCon($con);           
                         ?>
                 </div>
             </div>

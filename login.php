@@ -45,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if email is empty
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter email.";
+        
     } else{
         $email = trim($_POST["email"]);
     }
@@ -52,20 +53,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if password is empty
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter your password.";
+        
     } else{
         $password = trim($_POST["password"]);
     }
+    echo "\npass is: " . $password;
+    echo "\nemail is:" . $email;
     
     // Validate credentials
     if(empty($email_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, email, password FROM users WHERE email = ?";
+        $sql = "SELECT id, email, pass FROM users WHERE email = ?";
         echo "validat";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($link, $sql))
+        {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-            
+              
             // Set parameters
             $param_email = $email;
             echo "prepare";
@@ -92,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["email"] = $email;                            
                             
                             // Redirect user to welcome page
-                            header("location: https://elitegamers.ro");
+                            header("location: /index.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid email or password.";
