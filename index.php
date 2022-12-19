@@ -135,7 +135,8 @@ Dintre toate muzeele provinciale din întinsul ţării româneşti, pe lângă c
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Program vizitare</h3>
-                            <p class="text-muted mb-0">L-V: 8:00-22:00<br>S-D: 8:00-12:00</p>
+                            <p class="text-muted mb-0">L-V: 8:00-22:00</p>
+                            <p class="text-muted mb-0">S-D: 8:00-12:00</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
