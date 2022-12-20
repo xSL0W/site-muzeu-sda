@@ -1,3 +1,12 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Include config file
+require_once "../config.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title>Informatii Muzeu</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,17 +28,16 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html">Muzeul Puskas Tidar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,8 +48,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Informatii</h1>
+                            <span class="subheading">Un exemplu de pagina...</span>
                         </div>
                     </div>
                 </div>
@@ -54,13 +62,72 @@
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                            <h2 class="post-title">
+                            <?php
+                                $result = $link->query("SELECT title FROM `posts` WHERE id=1;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>
+                            </h2>
+                            <h3 class="post-subtitle">
+                            <?php
+                                $result = $link->query("SELECT short_content FROM `posts` WHERE id=1;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>
+                            </h3>
                         </a>
+                        <img src="
+                        <?php $result = $link->query("SELECT thumbnail_path FROM `posts` WHERE id=1;");
+                        $row = $result->fetch_row();
+                        echo '', $row[0];?>
+                        " alt="dadada" class="img-thumbnail">
+            
+
+
+
+
+                        <a href="post.html">
+                            <h2 class="post-title">
+                            <?php
+                                $result = $link->query("SELECT title FROM `posts` WHERE id=2;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>
+                            </h2>
+                            <h3 class="post-subtitle">
+                            <?php
+                                $result = $link->query("SELECT short_content FROM `posts` WHERE id=2;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>
+                            </h3>
+                        </a>
+                        <img src="
+                        <?php $result = $link->query("SELECT thumbnail_path FROM `posts` WHERE id=2;");
+                        $row = $result->fetch_row();
+                        echo '', $row[0];?>
+                        " alt="dadada" class="img-thumbnail">
+
+
+
+
+
+                        
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2022
+                            <a href="#!">
+                            <?php
+                                $result = $link->query("SELECT email FROM `users` WHERE id=1;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>                               
+                            </a>
+                            <?php
+                                $result = $link->query("SELECT created_at FROM `posts` WHERE id=1;");
+                                $row = $result->fetch_row();
+                                echo '', $row[0];
+                            ?>
                         </p>
                     </div>
                     <!-- Divider-->

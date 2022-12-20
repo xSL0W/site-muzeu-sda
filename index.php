@@ -50,19 +50,6 @@ ClassicEditor
                 <a class="navbar-brand" href="#page-top">
                 <?php echo "Hello, " .  htmlspecialchars(empty($_SESSION["email"]) ? "guest" : $_SESSION["email"]); ?>
                 <?php
-
-                
-                  // $con = newCon();
-                  // $res = $con->query("SELECT `title` FROM `dashboard` WHERE `id`=1;");
-
-                  // if ($res)
-                  // {
-                  //     $row = $res->fetch_row();
-                  //     echo $row[0];
-                  // }
-                  // 
-                  // $res->close();
-                  // closeCon($con);  
                 ?>
                 </a>
                 
@@ -72,7 +59,8 @@ ClassicEditor
                         <li class="nav-item"><a class="nav-link" href="#about">Despre</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Informatii Generale</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Galerie</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li>     
+                        <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="/informatii">Informatii</a></li>     
                         <?php 
                             echo empty($_SESSION["email"]) ? "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">Login</a></li>" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"logout.php\">Logout</a></li>"; 
                             echo empty($_SESSION["email"]) ? "" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/admin/index.php\">Admin Panel</a></li>";
@@ -246,18 +234,7 @@ Dintre toate muzeele provinciale din întinsul ţării româneşti, pe lângă c
         <footer class="bg-light py-5" id="footer">
                 <div class="container px-4 px-lg-5">
                     <div class="small text-center text-muted">
-                        <?php
-                         //  $con = newCon();
-                         //  $res = $con->query("SELECT `footer` FROM `dashboard` WHERE `id`=1;");
-
-                         //  if ($res)
-                         //  {
-                         //      $row = $res->fetch_row();
-                         //      echo $row[0];
-                         //  }
-                         //  
-                         //  $res->close();
-                         //  closeCon($con);           
+                        <?php       
                         ?>
                 </div>
             </div>
