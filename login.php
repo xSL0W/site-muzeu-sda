@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $sql = "SELECT id, email, pass FROM users WHERE email = ?";
         echo "validat";
         
-        if($stmt = mysqli_prepare($link, $sql))
+        if($stmt = mysqli_prepare($db, $sql))
         {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($link);
+    mysqli_close($db);
 }
 ?>
     

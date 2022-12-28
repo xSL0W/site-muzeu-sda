@@ -4,7 +4,7 @@ session_start();
  
 // Include config file
 require_once "../config.php";
-
+require_once "info.data.php";
 ?>
 
 <!DOCTYPE html>
@@ -61,116 +61,10 @@ require_once "../config.php";
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">
-                            <?php
-                                $result = $link->query("SELECT title FROM `posts` WHERE id=1;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>
-                            </h2>
-                            <h3 class="post-subtitle">
-                            <?php
-                                $result = $link->query("SELECT short_content FROM `posts` WHERE id=1;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>
-                            </h3>
-                        </a>
-                        <img src="
-                        <?php $result = $link->query("SELECT thumbnail_path FROM `posts` WHERE id=1;");
-                        $row = $result->fetch_row();
-                        echo '', $row[0];?>
-                        " alt="dadada" class="img-thumbnail">
-            
-
-
-
-
-                        <a href="post.html">
-                            <h2 class="post-title">
-                            <?php
-                                $result = $link->query("SELECT title FROM `posts` WHERE id=2;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>
-                            </h2>
-                            <h3 class="post-subtitle">
-                            <?php
-                                $result = $link->query("SELECT short_content FROM `posts` WHERE id=2;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>
-                            </h3>
-                        </a>
-                        <img src="
-                        <?php $result = $link->query("SELECT thumbnail_path FROM `posts` WHERE id=2;");
-                        $row = $result->fetch_row();
-                        echo '', $row[0];?>
-                        " alt="dadada" class="img-thumbnail">
-
-
-
-
-
-                        
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">
-                            <?php
-                                $result = $link->query("SELECT email FROM `users` WHERE id=1;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>                               
-                            </a>
-                            <?php
-                                $result = $link->query("SELECT created_at FROM `posts` WHERE id=1;");
-                                $row = $result->fetch_row();
-                                echo '', $row[0];
-                            ?>
-                        </p>
+                        <?php sendAllPosts(); ?> 
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
+
+
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>

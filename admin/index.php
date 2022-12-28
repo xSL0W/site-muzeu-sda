@@ -136,7 +136,7 @@ require_once "../config.php";
                                     <div class="card-body">Users</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <?php 
-                                            $result = $link->query("SELECT COUNT(*) FROM `users`");
+                                            $result = $db->query("SELECT COUNT(*) FROM `users`");
                                             $row = $result->fetch_row();
                                             echo '', $row[0];
                                         ?>
