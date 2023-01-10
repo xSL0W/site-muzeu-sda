@@ -5,6 +5,15 @@ session_start();
 // Include config file
 require_once "../config.php";
 require_once "info.data.php";
+
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "ro"; }
+
+if (isset($_POST["lang"])) 
+{ 
+    $_SESSION["lang"] = $_POST["lang"]; 
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +47,21 @@ require_once "info.data.php";
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+
+                        <form action="index.php" method="POST">
+                        <input type="hidden" name="lang" value="ro">
+                        <button href="" type="submit">ro</button>
+                        </form>
+
+                        <form action="index.php" method="POST">
+                        <input type="hidden" name="lang" value="en">
+                        <button href="" type="submit">en</button>
+                        </form>
+
+                        <form action="index.php" method="POST">
+                        <input type="hidden" name="lang" value="hu">
+                        <button href="" type="submit">hu</button>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -61,9 +85,60 @@ require_once "info.data.php";
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <?php sendAllPosts(); ?> 
-                    </div>
+                        <?php
+                        $lang = $_SESSION["lang"];
+                        echo "lang: ".$lang;
+                        for($i = 1; $i <= getPostsCount($lang); $i++)
+                        { 
+                            
+                            $result = $db->query("SELECT * FROM `posts` WHERE `id` = $i AND `lang` = '$lang';");
+                            #$result = $db->query("SELECT * FROM `posts` WHERE `id` = $i AND `lang` = 'ro';");
 
+                            if ($result !== FALSE) 
+                            {
+                                $postsData = $result->fetch_assoc();
+                            }
+ 
+                            $result = $db->query("SELECT users.email,users.name FROM `users` JOIN posts ON users.id = posts.posted_by WHERE posts.id = $i;");
+
+                            if ($result !== FALSE) 
+                            {
+                                $usersData = $result->fetch_assoc();
+                            }
+                            ?>
+                            <div class="post-preview">
+                                <a href="post.html">
+                                    <h2 class="post-title">
+                                        <?php 
+                                            echo $postsData['title']
+                                        ?>
+                                    </h2>
+
+                                    <h3 class="post-subtitle">
+                                        <?php 
+                                            echo $postsData['short_content'];
+                                        ?>
+                                    </h3>  
+                                </a>            
+                            <a>
+
+                                <img src="<?php echo $postsData['thumbnail_path']; ?>" alt="" class="img-thumbnail">
+                            
+                                <p class="post-meta"> Posted by
+                                    <a href="#">
+                                
+                                    <?php echo $usersData['name']." - ".$usersData['email']; ?>
+
+                                    </a>
+                                    - on date
+                                    <?php echo $postsData['posted_at_unix'] ?>
+                                </p>
+                            </div>
+                            <hr class="my-4"/>
+                            <?php 
+                        } ?>
+                    
+                    </div>
 
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
