@@ -4,21 +4,6 @@ session_start();
 
 
 
-<!--
-
-<div id="editor">Un cal intra in padure tagadam tagadam tagadam...</div>
-
-<script>
-ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .catch( error => {
-        console.error( error );
-    } );
-</script>
-
- -->
-
-
 
 <!DOCTYPE html>
 <html lang="en">

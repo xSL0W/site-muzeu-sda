@@ -51,17 +51,17 @@ if (isset($_POST["lang"]))
                         <!--<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li> !-->
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
 
-                        <form action="index.php" method="POST">
+                        <form action="" method="POST">
                         <input type="hidden" name="lang" value="ro">
                         <button href="" type="submit">ro</button>
                         </form>
 
-                        <form action="index.php" method="POST">
+                        <form action="" method="POST">
                         <input type="hidden" name="lang" value="en">
                         <button href="" type="submit">en</button>
                         </form>
 
-                        <form action="index.php" method="POST">
+                        <form action="" method="POST">
                         <input type="hidden" name="lang" value="hu">
                         <button href="" type="submit">hu</button>
                         </form>
@@ -82,65 +82,33 @@ if (isset($_POST["lang"]))
                 </div>
             </div>
         </header>
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+        <!-- Main Content-->
+        <div class="container d-flex justify-content-center align-items-center text-center">
+            <div class="row">
+
+                <?php 
+                $lang = $_SESSION["lang"];
+           
+                global $db;
+                $result = $db->query("SELECT * FROM `categories` WHERE `lang` = '$lang';");
+
+                while ($categories = mysqli_fetch_assoc($result)) { ?>
+                <div class="col-md-4 text-truncate">
+                    <a href="index.php?category=<?php echo $categories['name']?>"> 
+                        <p> <?php echo $categories['text'] ?> </p>
+                        <img src="<?php echo $categories['image_path'] ?>" class="img-fluid" alt="image1"> 
+                    </a>
+                </div>
+                <?php 
+
+                } ?>
 
 
-                    <!-- Post preview-->
-                        <?php
-                        $lang = $_SESSION["lang"];
 
-                        if(!$category = $_GET["category"])
-                        {
-                            $category = "";
-                        }
-                        
-                        
-                        
-
-                        echo "lang: ".$lang;
-                        for($i = 1; $i <= getPostsCount($lang); $i++)
-                        { 
-                            $postsData = getPostData($i, $lang, $category);
-                            $usersData = getUserDataByPostId($i);
-
-                            ?>
-                            <div class="post-preview">
-                                <a href="post.html">
-                                    <h2 class="post-title">
-                                        <?php 
-                                            echo $postsData['title']
-                                        ?>
-                                    </h2>
-
-                                    <h3 class="post-subtitle">
-                                        <?php 
-                                            echo $postsData['description'];
-                                        ?>
-                                    </h3>
-                                </a>            
-                    
-
-                                <img src="<?php echo $postsData['thumbnail_path']; ?>" alt="" class="img-thumbnail">
-                            
-                                <p class="post-meta"> Posted by
-                                    <a href="#">
-                                
-                                    <?php echo $usersData['name']." - ".$usersData['email']; ?>
-
-                                    </a>
-                                    - on date
-                                    <?php echo $postsData['posted_at_unix'];?>
-                                </p>
-                            </div>
-                            <hr class="my-4"/>
-                            <?php 
-                        } mysqli_close($db); ?>
-                    
-
+            </div>
+        </div>
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <div class="d-flex justify-content-end mb-4"></div>
                 </div>
             </div>
         </div>

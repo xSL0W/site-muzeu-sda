@@ -36,61 +36,62 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$email = $password = "";
-$email_err = $password_err = $login_err = "";
+$email = $password = $email_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
     // Check if email is empty
     if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter email.";
-        
-    } else{
+        $email_err = "Please enter email.";  
+    } 
+    else
+    {
         $email = trim($_POST["email"]);
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if(empty(trim($_POST["password"])))
+    {
         $password_err = "Please enter your password.";
-        
-    } else{
-        $password = trim($_POST["password"]);
+    } 
+    else
+    {
+      $password = trim($_POST["password"]);
     }
-    echo "\npass is: " . $password;
-    echo "\nemail is:" . $email;
-    
+
     // Validate credentials
-    if(empty($email_err) && empty($password_err)){
+    if(empty($email_err) && empty($password_err))
+    {
         // Prepare a select statement
         $sql = "SELECT id, email, pass FROM users WHERE email = ?";
-        echo "validat";
         
         if($stmt = mysqli_prepare($db, $sql))
         {
+
+            // Set parameters
+            $param_email = $email; 
+
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-              
-            // Set parameters
-            $param_email = $email;
-            echo "prepare";
+
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if(mysqli_stmt_execute($stmt))
+            {
                 // Store result
                 mysqli_stmt_store_result($stmt);
-                echo "executa";
                 
                 // Check if email exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){    
-                    echo "email ok";                
+                if(mysqli_stmt_num_rows($stmt) == 1)
+                {    
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                    if(mysqli_stmt_fetch($stmt))
+                    {
+                        if(password_verify($password, $hashed_password))
+                        {
                             // Password is correct, so start a new session
                             session_start();
-                            echo "go go go";
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
@@ -99,16 +100,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to welcome page
                             header("location: /index.php");
-                        } else{
+                        } 
+                        else
+                        {
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid email or password.";
                         }
                     }
-                } else{
+                } 
+                else
+                {
                     // email doesn't exist, display a generic error message
                     $login_err = "Invalid email or password.";
                 }
-            } else{
+            } 
+            else
+            {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
