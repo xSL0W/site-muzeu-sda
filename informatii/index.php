@@ -11,6 +11,10 @@ if (!isset($_SESSION["lang"]))
     $_SESSION["lang"] = "ro";
 }
 
+error_reporting(0); 
+
+
+
 if (isset($_POST["lang"])) 
 { 
     $_SESSION["lang"] = $_POST["lang"]; 
@@ -91,20 +95,26 @@ if (isset($_POST["lang"]))
                         <?php
                         $lang = $_SESSION["lang"];
 
-                        if(!$category = $_GET["category"])
+                        if(!$_GET["category"])
                         {
-                            $category = "";
+                           // $category = "";
+                            $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang';");
                         }
-                        
+                        else
+                        {
+                            $category = $_GET["category"];
+                            $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang' AND `category` = '$category';");
+                        }
+                       
                         
                         
 
                         echo "lang: ".$lang;
-                        for($i = 1; $i <= getPostsCount($lang); $i++)
-                        { 
-                            $postsData = getPostData($i, $lang, $category);
-                            $usersData = getUserDataByPostId($i);
-
+                        while($postsData = mysqli_fetch_assoc($postQuery))
+                        {
+                            $uid = trim($postsData['posted_by']);
+                            $postAuthorQuery = $db->query("SELECT * FROM `users` WHERE `id` = $uid;");
+                            $usersData = mysqli_fetch_assoc($postAuthorQuery);
                             ?>
                             <div class="post-preview">
                                 <a href="post.html">

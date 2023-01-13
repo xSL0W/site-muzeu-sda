@@ -45,7 +45,7 @@ session_start();
                         <li class="nav-item"><a class="nav-link" href="#services">Informatii Generale</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Galerie</a></li>
                         <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/informatii">Informatii</a></li>     
+                        <li class="nav-item"><a class="nav-link" href="/informatii/categories.php">Categorii</a></li>     
                         <?php 
                             echo empty($_SESSION["email"]) ? "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">Login</a></li>" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"logout.php\">Logout</a></li>"; 
                             echo empty($_SESSION["email"]) ? "" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/admin/index.php\">Admin Panel</a></li>";
