@@ -4,18 +4,10 @@ session_start();
  
 // Include config file
 require_once "../config.php";
-require_once "info.data.php";
+require_once "../language.php";
+//require_once "info.data.php";
 
-if (!isset($_SESSION["lang"]))
-{ 
-    $_SESSION["lang"] = "ro";
-}
-
-if (isset($_POST["lang"])) 
-{ 
-    $_SESSION["lang"] = $_POST["lang"]; 
-}
-
+initLanguage()
 
 ?>
 
@@ -94,22 +86,15 @@ if (isset($_POST["lang"]))
 
                 while ($categories = mysqli_fetch_assoc($result)) { ?>
                 <div class="col-md-4 text-truncate">
-                    <a href="index.php?category=<?php echo $categories['name']?>"> 
+                    <a href="exponate/index.php?category=<?php echo $categories['name']?>"> 
                         <p> <?php echo $categories['text'] ?> </p>
                         <img src="<?php echo $categories['image_path'] ?>" class="img-fluid" alt="image1"> 
-                    </a>
-                </div>
+                        <div class="d-flex justify-content-end mb-4"></div>
+                    </a> 
+                    <hr class="my-4"/>
+                </div> 
                 <?php 
-
                 } ?>
-
-
-
-            </div>
-        </div>
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"></div>
-                </div>
             </div>
         </div>
         <!-- Footer-->

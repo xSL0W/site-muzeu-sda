@@ -2,23 +2,11 @@
 // Initialize the session
 session_start();
  
-// Include config file
-require_once "../config.php";
-require_once "info.data.php";
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/config.php");
+require_once($root."/language.php");
 
-if (!isset($_SESSION["lang"]))
-{ 
-    $_SESSION["lang"] = "ro";
-}
-
-error_reporting(0); 
-
-
-
-if (isset($_POST["lang"])) 
-{ 
-    $_SESSION["lang"] = $_POST["lang"]; 
-}
+initLanguage();
 
 
 ?>
@@ -49,7 +37,7 @@ if (isset($_POST["lang"]))
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+       
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                         <!--<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li> !-->
@@ -73,6 +61,7 @@ if (isset($_POST["lang"]))
                 </div>
             </div>
         </nav>
+        
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
@@ -86,72 +75,46 @@ if (isset($_POST["lang"]))
                 </div>
             </div>
         </header>
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
 
+        <!-- Main Content-->
+        <div class="container d-flex justify-content-center align-items-center text-center">
+            <div class="row">
 
-                    <!-- Post preview-->
-                        <?php
-                        $lang = $_SESSION["lang"];
+                <?php 
 
-                        if(!$_GET["category"])
-                        {
-                           // $category = "";
-                            $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang';");
-                        }
-                        else
-                        {
-                            $category = $_GET["category"];
-                            $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang' AND `category` = '$category';");
-                        }
-                       
-                        
-                        
+                $lang = $_SESSION["lang"];
+                global $db;
 
-                        echo "lang: ".$lang;
-                        while($postsData = mysqli_fetch_assoc($postQuery))
-                        {
-                            $uid = trim($postsData['posted_by']);
-                            $postAuthorQuery = $db->query("SELECT * FROM `users` WHERE `id` = $uid;");
-                            $usersData = mysqli_fetch_assoc($postAuthorQuery);
-                            ?>
-                            <div class="post-preview">
-                                <a href="post.html">
-                                    <h2 class="post-title">
-                                        <?php 
-                                            echo $postsData['title']
-                                        ?>
-                                    </h2>
+                if(!isset($_GET["category"]))
+                {
+                    $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang';");
+                }
+                else
+                {
+                    $category = mysqli_real_escape_string($db, $_GET["category"]);
 
-                                    <h3 class="post-subtitle">
-                                        <?php 
-                                            echo $postsData['description'];
-                                        ?>
-                                    </h3>
-                                </a>            
+                    $categoryIdQuery = $db->query("SELECT `id` FROM `categories` WHERE `name` = '$category';");
+                    $resultCategoryId = mysqli_fetch_assoc($categoryIdQuery);
+                    $categoryId = $resultCategoryId['id'];
+
+                    $postQuery = $db->query("SELECT * FROM `posts` WHERE `lang` = '$lang' AND `category` = '$categoryId';");
+                }
+
+                while($postsData = mysqli_fetch_assoc($postQuery))
+                {
+                    $uid = trim($postsData['posted_by']);
+                    $postAuthorQuery = $db->query("SELECT * FROM `users` WHERE `id` = $uid;");
+                    $usersData = mysqli_fetch_assoc($postAuthorQuery); ?>
                     
-
-                                <img src="<?php echo $postsData['thumbnail_path']; ?>" alt="" class="img-thumbnail">
-                            
-                                <p class="post-meta"> Posted by
-                                    <a href="#">
-                                
-                                    <?php echo $usersData['name']." - ".$usersData['email']; ?>
-
-                                    </a>
-                                    - on date
-                                    <?php echo $postsData['posted_at_unix'];?>
-                                </p>
-                            </div>
+                    <div class="col-md-4 text-truncate">
+                        <a href="posts.php?post=<?php echo $postsData['title']?>"> 
+                            <p> <?php echo $postsData['title'] ?> </p>
+                            <img src="<?php echo $postsData['thumbnail_path'] ?>" class="img-fluid" alt="image1"> 
                             <hr class="my-4"/>
-                            <?php 
-                        } mysqli_close($db); ?>
-                    
-
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
-                </div>
+                        </a>
+                    </div>
+                <?php 
+                } ?>
             </div>
         </div>
         <!-- Footer-->
