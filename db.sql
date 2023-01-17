@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2022 at 03:05 AM
+-- Generation Time: Jan 17, 2023 at 03:02 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `muzeu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `text` varchar(64) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  `lang` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `text`, `image_path`, `lang`) VALUES
+(1, 'name1', 'text1', 'https://roatamare.files.wordpress.com/2015/08/copiii-la-muzeu-roata-mare-giant-forest-museum.jpg', 'ro'),
+(2, 'name2', 'text2', 'https://roatamare.files.wordpress.com/2015/08/copiii-la-muzeu-roata-mare-ringling-museum.jpg', 'ro');
 
 -- --------------------------------------------------------
 
@@ -50,24 +72,27 @@ INSERT INTO `dashboard` (`id`, `title`, `footer`) VALUES
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `title` varchar(256) DEFAULT NULL,
-  `short_content` text NOT NULL,
+  `description` text NOT NULL,
   `content` longtext,
-  `category` varchar(128) DEFAULT NULL,
-  `created_by` int(11) NOT NULL,
-  `language` varchar(8) NOT NULL,
-  `created_at` varchar(128) NOT NULL,
+  `category` int(8) NOT NULL DEFAULT '0',
   `thumbnail_path` varchar(256) NOT NULL,
   `posted_by` int(8) NOT NULL,
-  `posted_at_unix` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `posted_at_unix` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lang` varchar(8) NOT NULL DEFAULT 'ro'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `short_content`, `content`, `category`, `created_by`, `language`, `created_at`, `thumbnail_path`, `posted_by`, `posted_at_unix`) VALUES
-(1, 'titlu 1', 'descriere scurta 1 descriere scurta 1 descriere scurta 1 descriere scurta 1 ', 'continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 ', 'test1', 1, 'ro', '21/12/2022', '../assets/img/portfolio/fullsize/1.jpg', 1, '2022-12-28 01:35:11'),
-(2, 'test2', 'descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  ', 'continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 ', 'test2', 2, 'ro', '21/12/2022', '../assets/img/portfolio/fullsize/2.jpg', 2, '2022-12-28 01:35:13');
+INSERT INTO `posts` (`id`, `title`, `description`, `content`, `category`, `thumbnail_path`, `posted_by`, `posted_at_unix`, `lang`) VALUES
+(1, 'titlu 1', 'descriere scurta 1 descriere scurta 1 descriere scurta 1 descriere scurta 1 ', 'continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 ', 1, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 1, '2023-01-14 00:03:58', 'ro'),
+(2, 'test22222222222', 'descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  ', 'continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 ', 1, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 2, '2023-01-14 00:03:57', 'ro'),
+(3, 'neagoe', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 1, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 1, '2023-01-13 23:16:27', 'ro'),
+(4, 'neagoe', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 2, 'http://zigzagprinromania.com/blog/wp-content/uploads/2018/03/Muzeul.National.Secuiesc.Logo-22-of-23-1024x576.jpg', 1, '2023-01-13 23:16:29', 'en'),
+(5, 'titlu 1', 'descriere scurta 1 descriere scurta 1 descriere scurta 1 descriere scurta 1 ', 'continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 continut 1 ', 2, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 1, '2023-01-14 00:03:59', 'ro'),
+(6, 'test22222222', 'descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  descriere scurta 2  ', 'continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 continut 2 ', 2, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 2, '2023-01-14 00:04:00', 'ro'),
+(7, 'neagoe', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 'da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da da ', 2, 'https://images.adsttc.com/media/images/627e/dec9/3e4b/318f/a100/0024/slideshow/courtesy_of_studio_malka_architecture.jpg?1652481733', 1, '2023-01-13 23:16:33', 'ro');
 
 -- --------------------------------------------------------
 
@@ -78,6 +103,7 @@ INSERT INTO `posts` (`id`, `title`, `short_content`, `content`, `category`, `cre
 CREATE TABLE `users` (
   `id` int(32) NOT NULL,
   `email` varchar(64) DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
   `pass` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -85,13 +111,20 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `pass`) VALUES
-(1, 'xslow@gmail.com', '$2y$10$bArmNGEfPjzRiF/e1hx6Fuf1HQ3MF0XbttVQ/pRsrQHQ1M6qHOj8q'),
-(2, 'geojeo@gmail.com\r\n', '$2y$10$bArmNGEfPjzRiF/e1hx6Fuf1HQ3MF0XbttVQ/pRsrQHQ1M6qHOj8q');
+INSERT INTO `users` (`id`, `email`, `name`, `pass`) VALUES
+(1, 'xslow@gmail.com', 'Alex Stan', '$2y$10$bArmNGEfPjzRiF/e1hx6Fuf1HQ3MF0XbttVQ/pRsrQHQ1M6qHOj8q'),
+(2, 'geojeo@gmail.com\r\n', 'Vrinceanu Georgiana', '$2y$10$bArmNGEfPjzRiF/e1hx6Fuf1HQ3MF0XbttVQ/pRsrQHQ1M6qHOj8q');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `dashboard`
@@ -109,11 +142,18 @@ ALTER TABLE `posts`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `dashboard`
@@ -125,7 +165,7 @@ ALTER TABLE `dashboard`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
