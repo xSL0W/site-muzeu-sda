@@ -26,6 +26,8 @@ initLanguage()
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
@@ -45,8 +47,8 @@ initLanguage()
 
                         <form action="" method="POST">
                         <input type="hidden" name="lang" value="ro">
-                        <button href="" type="submit">ro</button>
-                        </form>
+                        <button href="" type="submit">🇷🇴</button>
+                        </form>                   
 
                         <form action="" method="POST">
                         <input type="hidden" name="lang" value="en">
@@ -68,6 +70,7 @@ initLanguage()
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>Informatii</h1>
+
                             <span class="subheading">Un exemplu de pagina...</span>
                         </div>
                     </div>
@@ -134,7 +137,7 @@ initLanguage()
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
