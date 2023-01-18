@@ -32,7 +32,7 @@ function initLanguage()
     // if button sends new language
     if (isset($_POST["lang"])) 
     { 
-        $_SESSION["lang"] = $_POST["lang"];
+        $_SESSION["lang"] = trim($_POST["lang"]);
         return; 
     }
 }
