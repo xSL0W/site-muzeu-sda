@@ -1,236 +1,630 @@
 <?php
+// Initialize the session
 session_start();
+ 
+// Include config file
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/config.php");
+require_once($root."/language.php");
+
+initLanguage();
+
+//echo getLanguage();
+
 ?>
 
 
 
+<!--
+$$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\  
+$$ |  $$ |$$  _____|$$  __$$\ $$  __$$\ 
+$$ |  $$ |$$ |      $$ /  $$ |$$ |  $$ |
+$$$$$$$$ |$$$$$\    $$$$$$$$ |$$ |  $$ |
+$$  __$$ |$$  __|   $$  __$$ |$$ |  $$ |
+$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |
+$$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
+\__|  \__|\________|\__|  \__|\_______/ 
+                                        
+ -->
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Muzeul secuiesc - Sfantu Gheorghe</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
 
-        <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
-    </head>
-    <body id="page-top">
-        
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">
-                <?php echo "Hello, " .  htmlspecialchars(empty($_SESSION["email"]) ? "guest" : $_SESSION["email"]); ?>
-                <?php
-                ?>
-                </a>
-                
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">Despre</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Informatii Generale</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Galerie</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#maps">Locatie</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/categorii/index.php">Exponate</a></li>     
-                        <?php 
-                            echo empty($_SESSION["email"]) ? "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">Login</a></li>" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"logout.php\">Logout</a></li>"; 
-                            echo empty($_SESSION["email"]) ? "" : "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/admin/index.php\">Admin Panel</a></li>";
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-        <!-- Masthead-->
-        <header class="masthead">
-        
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Bine aţi venit pe pagina web a Muzeului Naţional Secuiesc!</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">
-                        Muzeul Naţional Secuiesc, care în 2015 aniversează 140 de ani de la înfiinţarea sa, este una dintre colecţiile publice şi instituţiile culturale reprezentative pentru comunitatea maghiară din România.                         
-                        </p>
-                        <a class="btn btn-primary btn-xl" href="#about">Afla mai multe</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Scurta prezentare</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">
-                        Istoria zbuciumată a instituţiei este marcată de mutări succesive ale sediului, schimbări de regimuri, naţionalizare, evacuări cu consecinţe catastrofale, dar şi de o permanentă îmbogăţire a colecţiilor, participări la evenimente culturale, de rezonanţă şi de anvergură internaţională. Site-ul nostru oferă publicului un rezumat al istoriei şi al colecţiilor Muzeului Naţional Secuiesc, cu sediul în clădirea proiectată de Károly Kós, în speranţa că informaţiile cuprinse în paginile lui vor completa experienţa vizitării expoziţiilor şi vor ajuta la conturarea unei corecte şi complete viziuni asupra instituţiei noastre, în toată complexitatea sa. <br><br>
-                        Site-ul nostru oferă publicului un rezumat al istoriei şi al colecţiilor Muzeului Naţional Secuiesc, cu sediul în clădirea proiectată de Károly Kós, în speranţa că informaţiile cuprinse în paginile lui vor completa experienţa vizitării expoziţiilor şi vor ajuta la conturarea unei corecte şi complete viziuni asupra instituţiei noastre, în toată complexitatea sa.
-                        <br><br>
-Prezentarea nu se limitează doar la colecţiile de bază, aflate în sediul central al instituţiei, ci cuprinde şi secţiile externe, deoarece acestea – Galeriile de Artă „Gyárfás Jenő”, Centrul Artistic Transilvănean, Centrul de Artă Contemporană MAGMA, Muzeul „Haszmann Pál” de la Cernat, Muzeul de Istorie a Breslelor „Incze László” din Târgu Secuiesc, Muzeul Etnografic Ceangăiesc de la Zăbala şi Muzeul Depresiunii Baraolt de la Baraolt – contribuie, la rândul lor, la activităţile de salvare şi valorificare a bunurilor de patrimoniu, la un nivel profesional demn de instituţii muzeale de sine stătătoare.
+<html lang="<?php echo getLanguage();?>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Muzeul Puskas Tivadar</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-Sper ca bogata noastră ofertă de expoziţii şi programe vor consolida decizia dumneavoastră: Muzeul Naţional Secuiesc trebuie vizitat!
+  </head>
+  <body>
 
-<br><br>
-Dintre toate muzeele provinciale din întinsul ţării româneşti, pe lângă cele din Cluj, cel din Sf. Gheorghe este, fără îndoială, cel mai interesant şi cel mai plin de surprize ... clădirea adăposteşte obiecte distante cu mii de ani de frământările vremuurilor de azi. Celor cari ştiu să desprindă limbagiul mut, dar atâta de elocvent al obiectelor făurite de mâna omenească, splendide vase, cu ale lor spirale divers zugrăvite, le vorbesc de vremuri îndepărtate, în care preocuparea de frumos pare să fi învins meschinele patimi ce ne despart azi. ... Colegilor din Secuime trimit aceste urări cu cuget curat ...
-(Alexandru Tzigara-Samurcaş, inspector general al Muzeelor, 1929)
 
-                        </p>
-                        <!--<a class="btn btn-light btn-xl" href="#services">Get Started!</a>-->
-                    </div>
-                </div>
+<!--
+NavBar  
+-->
+
+
+<!-- Navbar -->
+<nav style="z-index: 1; min-height: 58.59px;" class="navbar navbar-expand-lg navbar-light bg-white">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo"
+             loading="lazy" />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+        <!-- Lang -->
+        <div class="dropdown">
+        <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+           data-mdb-toggle="dropdown" aria-expanded="false">
+           <i class="fa-solid fa-language"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+
+        <li>
+          <a class="dropdown-item" href="" onclick="sendLanguage('ro')">Romana</a>
+        </li>
+
+        <li>
+          <a class="dropdown-item" href="" onclick="sendLanguage('en')">English</a>
+        </li>
+
+        <li>
+          <a class="dropdown-item" href="" onclick="sendLanguage('hu')">Maghyar</a>
+        </li>
+
+        </ul>
+      </div>
+
+      <!-- Notifications -->
+      <div class="dropdown">
+        <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+           data-mdb-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
+               alt="Black and White Portrait of a Man" loading="lazy" />
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Background image -->
+<div  class="bg-image"
+      style="height: 65vh !important; margin-top: -58.59px; background-image: url('https://wallpaperaccess.com/full/2339295.jpg'); z-index:-1; ">
+
+
+  <!-- Mask -->
+  <div
+    class="mask"
+    style="
+      background: linear-gradient(
+        45deg,
+        hsla(169, 84.5%, 52%, 0.4),
+        hsla(263, 87.7%, 44.7%, 0.4) 100%
+      );
+    ">
+
+    <!-- Container -->
+    <div class="container d-flex justify-content-center align-items-center h-100">
+
+      <!-- Call to action -->
+      <div class="text-white text-center">
+        <h1 class="mb-3">Whoah, what a view!</h1>
+        <h5 class="mb-4">Learning web design is such an amazing thing</h5>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  
+
+
+</div>
+<!-- Jumbotron -->
+<div class="p-5 text-center bg-light mb-5">
+  <h1 class="mb-3">I am learning MDB</h1>
+  <h4 class="mb-4">...and it's awesome!</h4>
+  <a class="btn btn-primary btn-lg" href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/"
+     role="button">Learn with me</a>
+</div>
+<!-- Jumbotron -->
+
+
+
+
+
+<!--Main layout-->
+<main>
+  <div class="container mx-auto d-flex">
+
+    <!-- Section: Details -->
+    <section class="mb-8">
+
+      <div class="row">
+
+
+          <!-- Carousel wrapper -->
+          <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"
+                      aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"
+                      aria-label="Slide 2"></button>
+              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"
+                      aria-label="Slide 3"></button>
             </div>
-        </section>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Informatii generale</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Program vizitare</h3>
-                            <p class="text-muted mb-0">L-V: 8:00-22:00</p>
-                            <p class="text-muted mb-0">S-D: 8:00-12:00</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Locatie</h3>
-                            <p class="text-muted mb-0">Strada Lujerului nr. 69, Sfantu Gheorghe</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sustinatorul muzeului</h3>
-                            <p class="text-muted mb-0">Consiliul Judetean Covasna</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Iubim ungurii</h3>
-                            <p class="text-muted mb-0">Da, ai auzit bine, siteul este facut cu dragoste, iubim kurtos kolacs!</p>
-                        </div>
-                    </div>
+
+            <!-- Inner -->
+            <div class="rounded-6 carousel-inner">
+              <!-- Single item -->
+              <div class="carousel-item active">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100"
+                     alt="Sunset Over the City" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </div>
-            </div>
-        </section>
-        <!-- Portfolio-->
-        <div id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Artilerie</div>
-                                <div class="project-name">Tun</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Artilerie</div>
-                                <div class="project-name">Generale</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Biblioteca</div>
-                                <div class="project-name">Manuscrise</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Biblioteca</div>
-                                <div class="project-name">Manuscrise</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Arta</div>
-                                <div class="project-name">Papusi</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Echitatie</div>
-                                <div class="project-name">Calutzu</div>
-                            </div>
-                        </a>
-                    </div>
+              </div>
+
+              <!-- Single item -->
+              <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100"
+                     alt="Canyon at Nigh" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
+              </div>
+
+              <!-- Single item -->
+              <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100"
+                     alt="Cliff Above a Stormy Sea" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+              </div>
             </div>
+            <!-- Inner -->
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- Carousel wrapper -->
+
         </div>
-        <!-- Call to action-->
-        <section class="page-section bg-dark text-white">
-            <div class="container px-4 px-lg-5 text-center">
-                <div class="mb-2"><i class="bi-globe fs-1 text-primary" id="maps"></i></div>
-                <h3 class="mb-4">Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
 
-                <!--Google map-->
-                <div class="container-fluid">
-                <div class="map-responsive">
-                <iframe src="https://maps.google.com/maps?q=muzeul-national-secuiesc&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-                </div>
-                <!--Google Maps-->
+        <div class="col-lg-5">
 
-                <!--<a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>-->
-            </div>
-        </section>
+        </div>
 
-        <!-- Footer-->
-        <footer class="bg-light py-5" id="footer">
-                <div class="container px-4 px-lg-5">
-                    <div class="small text-center text-muted">
-                        <?php       
-                        ?>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        
+      </div>
 
-    </body>
+    </section>
+    <!-- Section: Details -->
+
+  </div>
+</main>
+<!--Main layout-->
+
+
+
+<div class="container">
+  <div class="row">
+
+    <!-- First column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- First column -->
+
+    <!-- Second column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Second column -->
+
+    <!-- Third column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Third column -->
+  </div>
+
+
+  <div class="row">
+
+    <!-- First column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- First column -->
+
+    <!-- Second column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Second column -->
+
+    <!-- Third column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Third column -->
+  </div>  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="bg-primary text-center text-lg-start text-muted">
+
+  <div class="container">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 pb-1">
+      <!-- Left -->
+      <div class="text-white me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="text-white fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+  </div>
+
+  <hr class="hr">
+
+  <div class="container">
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-white  text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p class="text-white">
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-white text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-white">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-white text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-white">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-white text-uppercase fw-bold mb-4">Contact</h6>
+            <p class="text-white"><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p class="text-white">
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p class="text-white"><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p class="text-white"><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  </div>
+
+
+
+  <!-- Copyright -->
+  <div class="text-white text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-white fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </body>
 </html>
+
+
+<!-- Footer -->
