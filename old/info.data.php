@@ -1,9 +1,14 @@
 <?php 
 
 // Include config file
-require_once "../config.php";
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/config.php");
 
 
+function isLoggedIn() 
+{
+    return (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true);
+}
 
 function getPostsCount($lang) 
 {

@@ -1,9 +1,26 @@
 <?php 
 
 // Include config file
-require_once "../config.php";
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/config.php");
 
 
+function isLoggedIn() 
+{
+    return (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true);
+}
+
+function getAvatar()
+{
+    if(isLoggedIn())
+    {
+        return "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp";
+    }
+    else
+    {
+        return "http://primusdatabase.com/images/archive/8/83/20201212165144%21Unknown_avatar.png";
+    }
+}
 
 function getPostsCount($lang) 
 {

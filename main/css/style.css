@@ -1,0 +1,49 @@
+.map-responsive{
+overflow:hidden;
+padding-bottom:50%;
+position:relative;
+height:0;
+}
+.map-responsive iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
+  
+  
+.main-gradient
+{
+    background: linear-gradient(
+        45deg,
+        hsla(169, 84.5%, 52%, 0.4),
+        hsla(263, 87.7%, 44.7%, 0.4) 100%
+      );
+}
+
+.secondary-gradient
+{
+    background: linear-gradient(
+        45deg,
+        rgba(17, 204, 42, 0.4),
+        rgba(17, 176, 204, 0.4) 100%
+      );
+}
+ 
+.divider-sm
+{
+    height:4px !important;
+}
+  
+.divider-md
+{
+    height:8px !important;
+}
+
+.divider-bg
+{
+    height:14px !important;
+}
+  
+  

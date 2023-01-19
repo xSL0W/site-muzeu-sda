@@ -5,6 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
+require_once($root."/info.data.php");
 require_once($root."/language.php");
 
 initLanguage();
@@ -55,7 +56,17 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
 
 
 <!--
-NavBar  
+$$\   $$\                     $$$$$$$\                      
+$$$\  $$ |                    $$  __$$\                     
+$$$$\ $$ | $$$$$$\ $$\    $$\ $$ |  $$ | $$$$$$\   $$$$$$\  
+$$ $$\$$ | \____$$\\$$\  $$  |$$$$$$$\ | \____$$\ $$  __$$\ 
+$$ \$$$$ | $$$$$$$ |\$$\$$  / $$  __$$\  $$$$$$$ |$$ |  \__|
+$$ |\$$$ |$$  __$$ | \$$$  /  $$ |  $$ |$$  __$$ |$$ |      
+$$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |      
+\__|  \__| \_______|   \_/    \_______/  \_______|\__|      
+                                                            
+                                                            
+                                                              
 -->
 
 
@@ -72,21 +83,23 @@ NavBar
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo"
-             loading="lazy" />
+      <a class="navbar-brand mt-2 mt-lg-0 " href="/main">
+        <img src="../logo-sm.png" height="50"/>
       </a>
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="/main"><i class="fa-sharp fa-solid fa-house me-1"></i>Acasa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
+          <a class="nav-link" href="/categorii"><i class="fa-solid fa-list me-1"></i>Exponate</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
+          <a class="nav-link" href="/despre-noi"><i class="fa-solid fa-address-card me-1"></i>Despre noi</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#maps"><i class="fa-solid fa-location-dot me-1"></i>Locatie</a>
+        </li>        
       </ul>
       <!-- Left links -->
     </div>
@@ -95,9 +108,7 @@ NavBar
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
+
 
         <!-- Lang -->
         <div class="dropdown">
@@ -127,7 +138,7 @@ NavBar
         <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
            data-mdb-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          <!--<span class="badge rounded-pill badge-notification bg-danger">1</span>-->
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
           <li>
@@ -145,19 +156,35 @@ NavBar
       <div class="dropdown">
         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-          <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
+          <img src="<?php echo getAvatar();?>" class="rounded-circle" height="25"
                alt="Black and White Portrait of a Man" loading="lazy" />
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+          <?php 
+          if(isLoggedIn())
+          { ?>
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="/admin">My profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="/admin">Admin</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="/logout.php">Logout</a>
           </li>
+          
+          <?php
+          }
+          else 
+          { ?>
+
+
+          <li>
+            <a class="dropdown-item" href="/login.php">Login</a>
+          </li>
+
+
+          <?php } ?>
         </ul>
       </div>
     </div>
@@ -174,33 +201,37 @@ NavBar
 
 
 
-
+<!--
+$$\   $$\                               
+$$ |  $$ |                              
+$$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  
+$$$$$$$$ |$$  __$$\ $$  __$$\ $$  __$$\ 
+$$  __$$ |$$$$$$$$ |$$ |  \__|$$ /  $$ |
+$$ |  $$ |$$   ____|$$ |      $$ |  $$ |
+$$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
+\__|  \__| \_______|\__|       \______/ 
+                                        
+                                        
+                                        
+ -->
 
 
 
 <!-- Background image -->
-<div  class="bg-image"
-      style="height: 65vh !important; margin-top: -58.59px; background-image: url('https://wallpaperaccess.com/full/2339295.jpg'); z-index:-1; ">
+<div  class="bg-image" style="height: 65vh !important; margin-top: -58.59px; background-image: url('https://wallpaperaccess.com/full/2339295.jpg'); z-index:-1; ">
 
 
   <!-- Mask -->
   <div
-    class="mask"
-    style="
-      background: linear-gradient(
-        45deg,
-        hsla(169, 84.5%, 52%, 0.4),
-        hsla(263, 87.7%, 44.7%, 0.4) 100%
-      );
-    ">
+    class="mask main-gradient"">
 
     <!-- Container -->
     <div class="container d-flex justify-content-center align-items-center h-100">
 
       <!-- Call to action -->
       <div class="text-white text-center">
-        <h1 class="mb-3">Whoah, what a view!</h1>
-        <h5 class="mb-4">Learning web design is such an amazing thing</h5>
+        <h1 class="mb-3">Bine aţi venit pe pagina web a muzeului Puskas-Tivadar!</h1>
+        <h5 class="mb-4">Muzeul Naţional Secuiesc, care în 2015 aniversează 140 de ani de la înfiinţarea sa, este una dintre colecţiile publice şi instituţiile culturale reprezentative pentru comunitatea maghiară din România.</h5>
       </div>
 
     </div>
@@ -209,20 +240,118 @@ NavBar
 
 
   
-
+<!--
+   $$$$$\                         $$\                  $$\                                   
+   \__$$ |                        $$ |                 $$ |                                  
+      $$ |$$\   $$\ $$$$$$\$$$$\  $$$$$$$\   $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$$$$$$\  
+      $$ |$$ |  $$ |$$  _$$  _$$\ $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\ $$  __$$\ 
+$$\   $$ |$$ |  $$ |$$ / $$ / $$ |$$ |  $$ |$$ /  $$ | $$ |    $$ |  \__|$$ /  $$ |$$ |  $$ |
+$$ |  $$ |$$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  $$ | $$ |$$\ $$ |      $$ |  $$ |$$ |  $$ |
+\$$$$$$  |\$$$$$$  |$$ | $$ | $$ |$$$$$$$  |\$$$$$$  | \$$$$  |$$ |      \$$$$$$  |$$ |  $$ |
+ \______/  \______/ \__| \__| \__|\_______/  \______/   \____/ \__|       \______/ \__|  \__|
+                                                                                             
+                                                                                             
+                                                                                             
+ -->
 
 </div>
 <!-- Jumbotron -->
-<div class="p-5 text-center bg-light mb-5">
-  <h1 class="mb-3">I am learning MDB</h1>
-  <h4 class="mb-4">...and it's awesome!</h4>
-  <a class="btn btn-primary btn-lg" href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/"
-     role="button">Learn with me</a>
+<div class="p-5 text-center bg-light mb-10">
+  <h1 class="mb-3">Esti curios?</h1>
+  <h4 class="mb-4">... vezi mai jos!</h4>
 </div>
-<!-- Jumbotron -->
 
 
 
+<div class="container mb-10">
+<section class="text-center">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+      <i class="fas fa-cubes fa-3x text-primary mb-4"></i>
+      <h5 class="text-primary fw-bold mb-3">5000+</h5>
+      <h6 class="fw-normal mb-0">Components</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+      <i class="fas fa-layer-group fa-3x text-primary mb-4"></i>
+      <h5 class="text-primary fw-bold mb-3">490+</h5>
+      <h6 class="fw-normal mb-0">Design blocks</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+      <i class="fas fa-image fa-3x text-primary mb-4"></i>
+      <h5 class="text-primary fw-bold mb-3">100+</h5>
+      <h6 class="fw-normal mb-0">Templates</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+      <i class="fas fa-plug fa-3x text-primary mb-4"></i>
+      <h5 class="text-primary fw-bold mb-3">28</h5>
+      <h6 class="fw-normal mb-0">Plugins</h6>
+    </div>
+  </div>
+</section>
+</div>
+
+
+
+
+
+<!--
+$$\      $$\                               
+$$$\    $$$ |                              
+$$$$\  $$$$ | $$$$$$\   $$$$$$\   $$$$$$$\ 
+$$\$$\$$ $$ | \____$$\ $$  __$$\ $$  _____|
+$$ \$$$  $$ | $$$$$$$ |$$ /  $$ |\$$$$$$\  
+$$ |\$  /$$ |$$  __$$ |$$ |  $$ | \____$$\ 
+$$ | \_/ $$ |\$$$$$$$ |$$$$$$$  |$$$$$$$  |
+\__|     \__| \_______|$$  ____/ \_______/ 
+                       $$ |                
+                       $$ |                
+                       \__|                
+-->
+
+<hr class="hr rounded-circle main-gradient divider-sm mb-10"></hr>
+
+<div class="container text-center mb-10" id="maps">
+<section class="page-section  text-white">
+            <div class="container text-center">
+            <i class="text-primary fa-2x fa-sharp fa-solid fa-location-dot"></i>
+                <h3 class="mb-4 text-primary fw-bold">Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
+
+                <!--Google map-->
+                <div class="container-fluid">
+                <div class="map-responsive border border-2 border-primary" >
+                <iframe src="https://maps.google.com/maps?q=muzeul-national-secuiesc&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                </div>
+                <!--Google Maps-->
+
+                <!--<a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>-->
+            </div>
+        </section>
+</div>
+
+<hr class="hr rounded-circle main-gradient divider-sm mb-6"></hr>
+
+
+
+<!--
+ $$$$$$\                       $$\                          $$\                             
+$$  __$$\                      $$ |                         $$ |                            
+$$ /  \__| $$$$$$\  $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$$\ $$$$$$\                           
+$$ |      $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\\_$$  _|                          
+$$ |      $$ /  $$ |$$ |  $$ | $$ |    $$$$$$$$ |$$ |  $$ | $$ |                            
+$$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\                         
+\$$$$$$  |\$$$$$$  |$$ |  $$ | \$$$$  |\$$$$$$$\ $$ |  $$ | \$$$$  |                        
+ \______/  \______/ \__|  \__|  \____/  \_______|\__|  \__|  \____/                         
+                                                                                            
+                                                                                            
+                                                                                                                                                                                                                            
+ -->
 
 
 <!--Main layout-->
@@ -230,10 +359,15 @@ NavBar
   <div class="container mx-auto d-flex">
 
     <!-- Section: Details -->
-    <section class="mb-8">
+    <section class="mb-10">
 
       <div class="row">
 
+
+      <div class="container text-center">
+            <i class="text-primary fa-2x fa-sharp fa-solid fa-image"></i>
+                <h3 class="mb-4 text-primary fw-bold">Mini-Galerie</h3>
+      </div>
 
           <!-- Carousel wrapper -->
           <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
@@ -312,7 +446,13 @@ NavBar
 
 
 
-<div class="container">
+
+
+
+<hr class="hr rounded-circle main-gradient divider-sm mb-6"></hr>
+
+
+<div class="container text-center mb-10">
   <div class="row">
 
     <!-- First column -->
@@ -465,7 +605,19 @@ NavBar
 
 
 
-
+<!--
+$$$$$$$$\                   $$\                         
+$$  _____|                  $$ |                        
+$$ |    $$$$$$\   $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  
+$$$$$\ $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\ 
+$$  __|$$ /  $$ |$$ /  $$ | $$ |    $$$$$$$$ |$$ |  \__|
+$$ |   $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |      
+$$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |      
+\__|    \______/  \______/   \____/  \_______|\__|      
+                                                        
+                                                        
+                                                        
+ -->
 
 
 
@@ -482,6 +634,8 @@ NavBar
       <div class="text-white me-5 d-none d-lg-block">
         <span>Get connected with us on social networks:</span>
       </div>
+
+      
       <!-- Left -->
 
       <!-- Right -->
