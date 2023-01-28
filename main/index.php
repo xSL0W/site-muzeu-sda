@@ -52,7 +52,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <link rel="stylesheet" href="css/style.css" />
 
   </head>
-  <body>
+  <body class="bg-darkgray">
 
 
 <!--
@@ -71,11 +71,11 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
 
 
 <!-- Navbar -->
-<nav style="z-index: 1; min-height: 58.59px;" class="navbar navbar-expand-lg navbar-light bg-white">
+<nav style="z-index: 2; min-height: 58.59px;" class="navbar-bg navbar navbar-expand-lg">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+    <button class="white-text navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
@@ -84,21 +84,22 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0 " href="/main">
-        <img src="../logo-sm.png" height="50"/>
+        <!--<img src="../logo-sm.png" class="" height="50"/>-->
+        <a class="white-text me-4">Puskas Tivadar </a>
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link" href="/main"><i class="fa-sharp fa-solid fa-house me-1"></i>Acasa</a>
+          <a class="nav-link white-text" href="/main"><i class="white-text fa-sharp fa-solid fa-house me-1"></i><?php echo getTranslatedText('BTN_HOME');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/categorii"><i class="fa-solid fa-list me-1"></i>Exponate</a>
+          <a class="nav-link white-text" href="/categorii"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/despre-noi"><i class="fa-solid fa-address-card me-1"></i>Despre noi</a>
+          <a class="nav-link white-text" href="/despre-noi"><i class="white-text fa-solid fa-address-card me-1"></i><?php echo getTranslatedText('BTN_ABOUT_US');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#maps"><i class="fa-solid fa-location-dot me-1"></i>Locatie</a>
+          <a class="nav-link white-text" href="#maps"><i class="white-text fa-solid fa-location-dot me-1"></i><?php echo getTranslatedText('BTN_LOCATION');?></a>
         </li>        
       </ul>
       <!-- Left links -->
@@ -112,46 +113,28 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
 
         <!-- Lang -->
         <div class="dropdown">
-        <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+        <a class="text-reset me-3 dropdown-toggle hidden-arrow white-text" href="#" id="navbarDropdownMenuLink" role="button"
            data-mdb-toggle="dropdown" aria-expanded="false">
-           <i class="fa-solid fa-language"></i>
+           <i class="white-text fa-solid fa-language"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 
         <li>
-          <a class="dropdown-item" href="" onclick="sendLanguage('ro')">Romana</a>
+          
+          <a class="dropdown-item" href="" onclick="sendLanguage('ro')"><i class="flag flag-ro"></i>Romana</a>
         </li>
 
         <li>
-          <a class="dropdown-item" href="" onclick="sendLanguage('en')">English</a>
+          <a class="dropdown-item" href="" onclick="sendLanguage('en')"><i class="flag flag-us"></i>English</a>
         </li>
 
         <li>
-          <a class="dropdown-item" href="" onclick="sendLanguage('hu')">Maghyar</a>
+          <a class="dropdown-item" href="" onclick="sendLanguage('hu')"><i class="flag flag-hu"></i>Maghyar</a>
         </li>
 
         </ul>
       </div>
 
-      <!-- Notifications -->
-      <div class="dropdown">
-        <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-           data-mdb-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-bell"></i>
-          <!--<span class="badge rounded-pill badge-notification bg-danger">1</span>-->
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div>
       <!-- Avatar -->
       <div class="dropdown">
         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
@@ -216,27 +199,72 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
  -->
 
 
+<!--Main Navigation-->
+<header>
+    <!-- Carousel wrapper -->
+    <div id="introCarousel" class="mb-8 carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
 
-<!-- Background image -->
-<div  class="bg-image" style="height: 65vh !important; margin-top: -58.59px; background-image: url('https://wallpaperaccess.com/full/2339295.jpg'); z-index:-1; ">
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item hero-size active">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.75);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
+                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item hero-size">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.75);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
+                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item hero-size">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.75);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
+                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item hero-size">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.75);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
+                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-  <!-- Mask -->
-  <div
-    class="mask main-gradient"">
-
-    <!-- Container -->
-    <div class="container d-flex justify-content-center align-items-center h-100">
-
-      <!-- Call to action -->
-      <div class="text-white text-center">
-        <h1 class="mb-3">Bine aţi venit pe pagina web a muzeului Puskas-Tivadar!</h1>
-        <h5 class="mb-4">Muzeul Naţional Secuiesc, care în 2015 aniversează 140 de ani de la înfiinţarea sa, este una dintre colecţiile publice şi instituţiile culturale reprezentative pentru comunitatea maghiară din România.</h5>
       </div>
-
+      <!-- Inner -->
     </div>
-
-  </div>
+    <!-- Carousel wrapper -->
+  </header>
+  <!--Main Navigation-->
 
 
   
@@ -254,48 +282,234 @@ $$ |  $$ |$$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  $$ | $$ |$$\ $$ |      $$ |  $
                                                                                              
  -->
 
-</div>
-<!-- Jumbotron -->
-<div class="p-5 text-center bg-light mb-10">
-  <h1 class="mb-3">Esti curios?</h1>
-  <h4 class="mb-4">... vezi mai jos!</h4>
-</div>
 
 
 
-<div class="container mb-10">
+
+<!--
+$$$$$$\            $$$$$$\                                              $$\     $$\ $$\ 
+\_$$  _|          $$  __$$\                                             $$ |    \__|\__|
+  $$ |  $$$$$$$\  $$ /  \__|$$$$$$\   $$$$$$\  $$$$$$\$$$$\   $$$$$$\ $$$$$$\   $$\ $$\ 
+  $$ |  $$  __$$\ $$$$\    $$  __$$\ $$  __$$\ $$  _$$  _$$\  \____$$\\_$$  _|  $$ |$$ |
+  $$ |  $$ |  $$ |$$  _|   $$ /  $$ |$$ |  \__|$$ / $$ / $$ | $$$$$$$ | $$ |    $$ |$$ |
+  $$ |  $$ |  $$ |$$ |     $$ |  $$ |$$ |      $$ | $$ | $$ |$$  __$$ | $$ |$$\ $$ |$$ |
+$$$$$$\ $$ |  $$ |$$ |     \$$$$$$  |$$ |      $$ | $$ | $$ |\$$$$$$$ | \$$$$  |$$ |$$ |
+\______|\__|  \__|\__|      \______/ \__|      \__| \__| \__| \_______|  \____/ \__|\__|
+                                                                                        
+                                                                                                                                                                              
+-->
+
+
+<div id="description" class="container mb-6">
 <section class="text-center">
   <div class="row">
     <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
-      <i class="fas fa-cubes fa-3x text-primary mb-4"></i>
-      <h5 class="text-primary fw-bold mb-3">5000+</h5>
-      <h6 class="fw-normal mb-0">Components</h6>
+    <i class="fa-solid mb-4 fa-3x primary-text fa-clock"></i>
+      <h5 class="primary-text fw-bold mb-3"><?php echo getTranslatedText('INFO_VISIT_HOURS');?></h5>
+      <h6 class="fw-normal mb-0">L-V: 8:00-22:00</h6>
+      <h6 class="fw-normal mb-0">S-D: 8:00-12:00</h6>
       <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
     </div>
 
     <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
-      <i class="fas fa-layer-group fa-3x text-primary mb-4"></i>
-      <h5 class="text-primary fw-bold mb-3">490+</h5>
-      <h6 class="fw-normal mb-0">Design blocks</h6>
+      <i class="fas fa-money-bill fa-3x primary-text mb-4"></i>
+      <h5 class="primary-text fw-bold mb-3"><?php echo getTranslatedText('INFO_SPONSOR');?></h5>
+      <h6 class="fw-normal mb-0">Consiliul Judetean Covasna</h6>
       <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
     </div>
 
     <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
-      <i class="fas fa-image fa-3x text-primary mb-4"></i>
-      <h5 class="text-primary fw-bold mb-3">100+</h5>
-      <h6 class="fw-normal mb-0">Templates</h6>
+      <i class="fas fa-building-columns fa-3x primary-text mb-4"></i>
+      <h5 class="primary-text fw-bold mb-3">500+</h5>
+      <h6 class="fw-normal mb-0"><?php echo getTranslatedText('INFO_EXHIBITS');?></h6>
       <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
     </div>
 
     <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
-      <i class="fas fa-plug fa-3x text-primary mb-4"></i>
-      <h5 class="text-primary fw-bold mb-3">28</h5>
-      <h6 class="fw-normal mb-0">Plugins</h6>
+      <i class="fas fa-calendar-days fa-3x primary-text mb-4"></i>
+      <h5 class="primary-text fw-bold mb-3">10 ani</h5>
+      <h6 class="fw-normal mb-0"><?php echo getTranslatedText('INFO_YEARS_OLD');?></h6>
     </div>
   </div>
 </section>
 </div>
 
+
+
+<hr class="hr hr-blurry mb-6"/>
+
+
+<div class="container">
+  <!--Section: Content-->
+  <section>
+    <div class="row">
+      <div class="col-md-6 gx-5 mb-4">
+        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+          <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 gx-5 mb-4">
+        <h4><strong>Facilis consequatur eligendi</strong></h4>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+          consequatur eligendi quisquam doloremque vero ex debitis
+          veritatis placeat unde animi laborum sapiente illo possimus,
+          commodi dignissimos obcaecati illum maiores corporis.
+        </p>
+        <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+          itaque voluptate nesciunt laborum incidunt. Officia, quam
+          consectetur. Earum eligendi aliquam illum alias, unde optio
+          accusantium soluta, iusto molestiae adipisci et?
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<!--Section: Content-->
+
+
+
+<!--
+ $$$$$$\                       $$\                          $$\                             
+$$  __$$\                      $$ |                         $$ |                            
+$$ /  \__| $$$$$$\  $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$$\ $$$$$$\                           
+$$ |      $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\\_$$  _|                          
+$$ |      $$ /  $$ |$$ |  $$ | $$ |    $$$$$$$$ |$$ |  $$ | $$ |                            
+$$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\                         
+\$$$$$$  |\$$$$$$  |$$ |  $$ | \$$$$  |\$$$$$$$\ $$ |  $$ | \$$$$  |                        
+ \______/  \______/ \__|  \__|  \____/  \_______|\__|  \__|  \____/                         
+                                                                                            
+                                                                                            
+                                                                                                                                                                                                                            
+ -->
+
+ <hr class="hr hr-blurry mb-6" />
+
+
+ <div class="container">
+  <!--Section: Content-->
+  <section>
+    <div class="row">
+
+
+      <div class="col-md-6 gx-5 mb-4">
+        <h4><strong>Facilis consequatur eligendi</strong></h4>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+          consequatur eligendi quisquam doloremque vero ex debitis
+          veritatis placeat unde animi laborum sapiente illo possimus,
+          commodi dignissimos obcaecati illum maiores corporis.
+        </p>
+        <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+          itaque voluptate nesciunt laborum incidunt. Officia, quam
+          consectetur. Earum eligendi aliquam illum alias, unde optio
+          accusantium soluta, iusto molestiae adipisci et?
+        </p>
+      </div>
+
+      <div class="col-md-6 gx-5 mb-4">
+        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+          <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="hr hr-blurry mb-6" />
+
+
+<div class="container text-center mb-4">
+  <div class="row">
+
+    <!-- First column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- First column -->
+
+    <!-- Second column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Second column -->
+
+    <!-- Third column -->
+    <div class="col-md">
+
+      <!-- Card -->
+      <div class="card mb-5">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Third column -->
+  </div>
+</div>
+
+
+<div class="container text-center mb-6">
+    <a href="#!" class="btn btn-success btn-lg">SEE MORE</a>
+</div>
+
+<hr class="hr hr-blurry mb-6" />
 
 
 
@@ -314,293 +528,25 @@ $$ | \_/ $$ |\$$$$$$$ |$$$$$$$  |$$$$$$$  |
                        \__|                
 -->
 
-<hr class="hr rounded-circle main-gradient divider-sm mb-10"></hr>
 
 <div class="container text-center mb-10" id="maps">
-<section class="page-section  text-white">
-            <div class="container text-center">
-            <i class="text-primary fa-2x fa-sharp fa-solid fa-location-dot"></i>
-                <h3 class="mb-4 text-primary fw-bold">Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
+  <section class="page-section  text-white">
+    <div class="container text-center">
+      
+      <h2 class="mb-1 white-text fw-bold">Unde ne aflam?</h2>
+      <h4 class="mb-6 primary-text fw-bold"><i class="primary-text fa-1x fa-sharp fa-solid fa-location-dot"></i> Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
 
-                <!--Google map-->
-                <div class="container-fluid">
-                <div class="map-responsive border border-2 border-primary" >
-                <iframe src="https://maps.google.com/maps?q=muzeul-national-secuiesc&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-                </div>
-                <!--Google Maps-->
+      <!--Google map-->
+      <div class="container-fluid">
+        <div class="map-responsive border border-2 border-primary" >
+          <iframe src="https://maps.google.com/maps?q=muzeul-national-secuiesc&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- Google Maps-->
 
-                <!--<a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>-->
-            </div>
-        </section>
+    </div>
+  </section>
 </div>
-
-<hr class="hr rounded-circle main-gradient divider-sm mb-6"></hr>
-
-
-
-<!--
- $$$$$$\                       $$\                          $$\                             
-$$  __$$\                      $$ |                         $$ |                            
-$$ /  \__| $$$$$$\  $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$$\ $$$$$$\                           
-$$ |      $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\\_$$  _|                          
-$$ |      $$ /  $$ |$$ |  $$ | $$ |    $$$$$$$$ |$$ |  $$ | $$ |                            
-$$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\                         
-\$$$$$$  |\$$$$$$  |$$ |  $$ | \$$$$  |\$$$$$$$\ $$ |  $$ | \$$$$  |                        
- \______/  \______/ \__|  \__|  \____/  \_______|\__|  \__|  \____/                         
-                                                                                            
-                                                                                            
-                                                                                                                                                                                                                            
- -->
-
-
-<!--Main layout-->
-<main>
-  <div class="container mx-auto d-flex">
-
-    <!-- Section: Details -->
-    <section class="mb-10">
-
-      <div class="row">
-
-
-      <div class="container text-center">
-            <i class="text-primary fa-2x fa-sharp fa-solid fa-image"></i>
-                <h3 class="mb-4 text-primary fw-bold">Mini-Galerie</h3>
-      </div>
-
-          <!-- Carousel wrapper -->
-          <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"
-                      aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"
-                      aria-label="Slide 2"></button>
-              <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"
-                      aria-label="Slide 3"></button>
-            </div>
-
-            <!-- Inner -->
-            <div class="rounded-6 carousel-inner">
-              <!-- Single item -->
-              <div class="carousel-item active">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100"
-                     alt="Sunset Over the City" />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-              </div>
-
-              <!-- Single item -->
-              <div class="carousel-item">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100"
-                     alt="Canyon at Nigh" />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-
-              <!-- Single item -->
-              <div class="carousel-item">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100"
-                     alt="Cliff Above a Stormy Sea" />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-              </div>
-            </div>
-            <!-- Inner -->
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample"
-                    data-mdb-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample"
-                    data-mdb-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <!-- Carousel wrapper -->
-
-        </div>
-
-        <div class="col-lg-5">
-
-        </div>
-
-      </div>
-
-    </section>
-    <!-- Section: Details -->
-
-  </div>
-</main>
-<!--Main layout-->
-
-
-
-
-
-
-<hr class="hr rounded-circle main-gradient divider-sm mb-6"></hr>
-
-
-<div class="container text-center mb-10">
-  <div class="row">
-
-    <!-- First column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- First column -->
-
-    <!-- Second column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Second column -->
-
-    <!-- Third column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Third column -->
-  </div>
-
-
-  <div class="row">
-
-    <!-- First column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- First column -->
-
-    <!-- Second column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Second column -->
-
-    <!-- Third column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Third column -->
-  </div>  
-  
-</div>
-
-
 
 
 
@@ -625,7 +571,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
 
 
 <!-- Footer -->
-<footer class="bg-primary text-center text-lg-start text-muted">
+<footer class="footer-bg text-center text-lg-start text-muted">
 
   <div class="container">
     <!-- Section: Social media -->
@@ -676,12 +622,11 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-white  text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Company name
+            <h6 class="text-white text-uppercase fw-bold mb-4">
+              <i class="fas fa-heart me-3"></i>Muzeul Puskas Tivadar
             </h6>
             <p class="text-white">
-              Here you can use rows and columns to organize your footer content. Lorem ipsum
-              dolor sit amet, consectetur adipisicing elit.
+              Va asteptam cu drag sa vizitati muzeul nostru cu exponate care dateaza inca din anul 1900 pana in prezent.
             </p>
           </div>
           <!-- Grid column -->
@@ -690,19 +635,19 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">
-              Products
+              Links Category 1
             </h6>
             <p>
-              <a href="#!" class="text-white">Angular</a>
+              <a href="#!" class="text-white">Link 1</a>
             </p>
             <p>
-              <a href="#!" class="text-white">React</a>
+              <a href="#!" class="text-white">Link 2</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Vue</a>
+              <a href="#!" class="text-white">Link 3</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Laravel</a>
+              <a href="#!" class="text-white">Link 4</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -711,19 +656,19 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">
-              Useful links
+              Links Category 2
             </h6>
             <p>
-              <a href="#!" class="text-white">Pricing</a>
+              <a href="#!" class="text-white">Link 5</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Settings</a>
+              <a href="#!" class="text-white">Link 6</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Orders</a>
+              <a href="#!" class="text-white">Link 7</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Help</a>
+              <a href="#!" class="text-white">Link 8</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -732,13 +677,13 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">Contact</h6>
-            <p class="text-white"><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p class="text-white"><i class="fas fa-home me-3"></i> Piața Libertății 7, Sf. Gheorghe, RO</p>
             <p class="text-white">
               <i class="fas fa-envelope me-3"></i>
-              info@example.com
+              contact@muzeulpuskastivadar.ro
             </p>
-            <p class="text-white"><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-            <p class="text-white"><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <p class="text-white"><i class="fas fa-phone me-3"></i> +40752516254</p>
+            <p class="text-white"><i class="fas fa-print me-3"></i> +40727612542</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -748,30 +693,16 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
     <!-- Section: Links  -->
   </div>
 
-
+  <hr class="hr">
 
   <!-- Copyright -->
   <div class="text-white text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2022 Copyright:
-    <a class="text-white fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2023 Copyright:
+    <a class="text-white fw-bold" href="">Muzeul Puskas Tivadar</a>
   </div>
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
