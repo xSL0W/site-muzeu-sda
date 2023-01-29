@@ -267,185 +267,8 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
   <!--Main Navigation-->
 
 
-  
-<!--
-   $$$$$\                         $$\                  $$\                                   
-   \__$$ |                        $$ |                 $$ |                                  
-      $$ |$$\   $$\ $$$$$$\$$$$\  $$$$$$$\   $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$$$$$$\  
-      $$ |$$ |  $$ |$$  _$$  _$$\ $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\ $$  __$$\ 
-$$\   $$ |$$ |  $$ |$$ / $$ / $$ |$$ |  $$ |$$ /  $$ | $$ |    $$ |  \__|$$ /  $$ |$$ |  $$ |
-$$ |  $$ |$$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  $$ | $$ |$$\ $$ |      $$ |  $$ |$$ |  $$ |
-\$$$$$$  |\$$$$$$  |$$ | $$ | $$ |$$$$$$$  |\$$$$$$  | \$$$$  |$$ |      \$$$$$$  |$$ |  $$ |
- \______/  \______/ \__| \__| \__|\_______/  \______/   \____/ \__|       \______/ \__|  \__|
-                                                                                             
-                                                                                             
-                                                                                             
- -->
 
 
-
-
-
-<!--
-$$$$$$\            $$$$$$\                                              $$\     $$\ $$\ 
-\_$$  _|          $$  __$$\                                             $$ |    \__|\__|
-  $$ |  $$$$$$$\  $$ /  \__|$$$$$$\   $$$$$$\  $$$$$$\$$$$\   $$$$$$\ $$$$$$\   $$\ $$\ 
-  $$ |  $$  __$$\ $$$$\    $$  __$$\ $$  __$$\ $$  _$$  _$$\  \____$$\\_$$  _|  $$ |$$ |
-  $$ |  $$ |  $$ |$$  _|   $$ /  $$ |$$ |  \__|$$ / $$ / $$ | $$$$$$$ | $$ |    $$ |$$ |
-  $$ |  $$ |  $$ |$$ |     $$ |  $$ |$$ |      $$ | $$ | $$ |$$  __$$ | $$ |$$\ $$ |$$ |
-$$$$$$\ $$ |  $$ |$$ |     \$$$$$$  |$$ |      $$ | $$ | $$ |\$$$$$$$ | \$$$$  |$$ |$$ |
-\______|\__|  \__|\__|      \______/ \__|      \__| \__| \__| \_______|  \____/ \__|\__|
-                                                                                        
-                                                                                                                                                                              
--->
-
-
-<div id="description" class="container mb-6">
-<section class="text-center">
-  <div class="row">
-    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
-    <i class="fa-solid mb-4 fa-3x primary-text fa-clock"></i>
-      <h5 class="primary-text fw-bold mb-3"><?php echo getTranslatedText('INFO_VISIT_HOURS');?></h5>
-      <h6 class="fw-normal mb-0">L-V: 8:00-22:00</h6>
-      <h6 class="fw-normal mb-0">S-D: 8:00-12:00</h6>
-      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
-      <i class="fas fa-money-bill fa-3x primary-text mb-4"></i>
-      <h5 class="primary-text fw-bold mb-3"><?php echo getTranslatedText('INFO_SPONSOR');?></h5>
-      <h6 class="fw-normal mb-0">Consiliul Judetean Covasna</h6>
-      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
-      <i class="fas fa-building-columns fa-3x primary-text mb-4"></i>
-      <h5 class="primary-text fw-bold mb-3">500+</h5>
-      <h6 class="fw-normal mb-0"><?php echo getTranslatedText('INFO_EXHIBITS');?></h6>
-      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
-      <i class="fas fa-calendar-days fa-3x primary-text mb-4"></i>
-      <h5 class="primary-text fw-bold mb-3">10 ani</h5>
-      <h6 class="fw-normal mb-0"><?php echo getTranslatedText('INFO_YEARS_OLD');?></h6>
-    </div>
-  </div>
-</section>
-</div>
-
-
-
-<hr class="hr hr-blurry mb-6"/>
-<!--
- $$$$$$\                       $$\                          $$\                             
-$$  __$$\                      $$ |                         $$ |                            
-$$ /  \__| $$$$$$\  $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$$\ $$$$$$\                           
-$$ |      $$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\\_$$  _|                          
-$$ |      $$ /  $$ |$$ |  $$ | $$ |    $$$$$$$$ |$$ |  $$ | $$ |                            
-$$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\                         
-\$$$$$$  |\$$$$$$  |$$ |  $$ | \$$$$  |\$$$$$$$\ $$ |  $$ | \$$$$  |                        
- \______/  \______/ \__|  \__|  \____/  \_______|\__|  \__|  \____/                         
-                                                                                            
-                                                                                            
-                                                                                                                                                                                                                            
- -->
-
-<div class="container">
-  <!--Section: Content-->
-  <section>
-    <div class="row">
-      <div class="col-md-6 gx-5 mb-6">
-        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="../assets/img/half1.jpeg" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-6 gx-5 mb-6 ">
-        <h4><strong>Facilis consequatur eligendi</strong></h4>
-
-        <p class="text-muted d-flex justify-content-center align-items-center h-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          consequatur eligendi quisquam doloremque vero ex debitis
-          veritatis placeat unde animi laborum sapiente illo possimus,
-          commodi dignissimos obcaecati illum maiores corporis.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          itaque voluptate nesciunt laborum incidunt. Officia, quam
-          consectetur. Earum eligendi aliquam illum alias, unde optio
-          accusantium soluta, iusto molestiae adipisci et?
-
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-           consequatur eligendi quisquam doloremque vero ex debitis
-           veritatis placeat unde animi laborum sapiente illo possimus,
-           commodi dignissimos obcaecati illum maiores corporis.
-
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-           itaque voluptate nesciunt laborum incidunt. Officia, quam
-           consectetur. Earum eligendi aliquam illum alias, unde optio
-           accusantium soluta, iusto molestiae adipisci et?
-         </p>
-      </div>
-    </div>
-  </section>
-</div>
-<!--Section: Content-->
-
-
-
-
-
- <hr class="hr hr-blurry mb-6" />
-
- 
-
- <div class="container">
-  <!--Section: Content-->
-  <section>
-    <div class="row">
-
-
-      <div class="col-md-6 gx-5 mb-6">
-        <h4><strong>Facilis consequatur eligendi</strong></h4>
-        <p class="text-muted d-flex justify-content-center align-items-center h-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          consequatur eligendi quisquam doloremque vero ex debitis
-          veritatis placeat unde animi laborum sapiente illo possimus,
-          commodi dignissimos obcaecati illum maiores corporis.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          itaque voluptate nesciunt laborum incidunt. Officia, quam
-          consectetur. Earum eligendi aliquam illum alias, unde optio
-          accusantium soluta, iusto molestiae adipisci et?
-
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-           consequatur eligendi quisquam doloremque vero ex debitis
-           veritatis placeat unde animi laborum sapiente illo possimus,
-           commodi dignissimos obcaecati illum maiores corporis.
-
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-           itaque voluptate nesciunt laborum incidunt. Officia, quam
-           consectetur. Earum eligendi aliquam illum alias, unde optio
-           accusantium soluta, iusto molestiae adipisci et?
-         </p>
-      </div>
-
-      <div class="col-md-6 gx-5 mb-4">
-        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="../assets/img/half2.jpeg" class="img-fluid fit-img" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<hr class="hr hr-blurry mb-6" />
 
 
 <div class="container text-center mb-4">
@@ -453,129 +276,56 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 
   <h2 class="mb-1 white-text fw-bold">Cateva din exponatele noastre...</h2>
   <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
-    
-  <!-- First column -->
-    <div class="col-md">
 
-      <!-- Card -->
-      <div class="card mb-5"">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="../assets/img/card1.jpeg" class="img-fluid fit-img" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title fw-underline">Card title</h5>
-          <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
+  <?php
+  $lang = getLanguage();
+  $db = mysqli_start();
+  $result = $db->query("SELECT * FROM `categories` WHERE `lang` = '$lang';");
+  $count = 0;
+
+  while ($categories = mysqli_fetch_assoc($result)) 
+  { 
+    if($count == 0 || $count % 3 == 0) {  ?> 
+      <div class="row"> 
+    <?php 
+    } // open row div at start/every 3 items?> 
+      <div class="col-md">
+
+        <!-- Card -->
+        <div class="card mb-5" >
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="<?php echo $categories['image_path']?>" class="img-fluid fit-img"/>
+            <a> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-underline"><?php echo $categories['name']?></h5>
+            <hr class="hr hr-blurry mb-3" />
+            <p class="card-text text-muted"><?php echo $categories['text'] ?></p>
+            <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
+          </div>
         </div>
+        <!-- Card -->
       </div>
-      <!-- Card -->
+      <?php 
+      $count++; 
 
-    </div>
-    <!-- First column -->
+    if($count % 3 == 0) {?> 
+      </div> <?php 
+    } // close the row div every 3 items
+  } // closing while loop
 
-    <!-- Second column -->
-    <div class="col-md">
+  if($count % 3 != 0) {?> 
+  </div> 
+  <?php } // make sure you close the div 
 
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="../assets/img/card2.jpeg" class="img-fluid fit-img" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <hr class="hr hr-blurry mb-3" />
+  mysqli_stop($db);?>
 
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Second column -->
-
-    <!-- Third column -->
-    <div class="col-md">
-
-      <!-- Card -->
-      <div class="card mb-5">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="../assets/img/card3.jpeg" class="img-fluid fit-img" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <hr class="hr hr-blurry mb-3" />
-
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
-        </div>
-      </div>
-      <!-- Card -->
-
-    </div>
-    <!-- Third column -->
   </div>
 </div>
 
 
-<div class="container text-center mb-6">
-    <a href="#!" class="btn btn-success btn-lg">SEE MORE</a>
-</div>
-
 <hr class="hr hr-blurry mb-6" />
-
-
-
-
-<!--
-$$\      $$\                               
-$$$\    $$$ |                              
-$$$$\  $$$$ | $$$$$$\   $$$$$$\   $$$$$$$\ 
-$$\$$\$$ $$ | \____$$\ $$  __$$\ $$  _____|
-$$ \$$$  $$ | $$$$$$$ |$$ /  $$ |\$$$$$$\  
-$$ |\$  /$$ |$$  __$$ |$$ |  $$ | \____$$\ 
-$$ | \_/ $$ |\$$$$$$$ |$$$$$$$  |$$$$$$$  |
-\__|     \__| \_______|$$  ____/ \_______/ 
-                       $$ |                
-                       $$ |                
-                       \__|                
--->
-
-
-<div class="container text-center mb-10" id="maps">
-  <section class="page-section  text-white">
-    <div class="container text-center">
-      
-      <h2 class="mb-1 white-text fw-bold"><?php echo getTranslatedText('MAPS_WHERE_ARE_WE');?></h2>
-      <h4 class="mb-6 primary-text fw-bold"><i class="primary-text fa-1x fa-sharp fa-solid fa-location-dot"></i> Str. Pescarilor, Sf. Gheorghe, Covasna</h3>
-
-      <!--Google map-->
-      <div>
-        <div class="map-responsive border border-2 border-primary" >
-          <iframe src="https://maps.google.com/maps?q=Liceul+Tehnologic+Puskás+Tivadar&ie=UTF8&iwloc=&output=embed&z=13" allowfullscreen></iframe>
-        </div>
-      </div>
-      <!-- Google Maps-->
-
-    </div>
-  </section>
-</div>
-
-
 
 
 <!--

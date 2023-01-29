@@ -125,7 +125,7 @@ filter: invert(90%) hue-rotate(180deg);
 /* Carousel styling */
 .hero-size
 {
-  height: 100vh;
+  height: 40vh;
 }
 
 
