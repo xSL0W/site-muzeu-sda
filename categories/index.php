@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/info.data.php");
+require_once($root."/info.data.php.old");
 require_once($root."/language.php");
 
 initLanguage();
@@ -36,7 +36,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../assets/img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -48,7 +48,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="../assets/css/mdb.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 
   </head>
@@ -357,7 +357,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
     <div class="row">
       <div class="col-md-6 gx-5 mb-6">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="img/half1.jpeg" class="img-fluid" />
+          <img src="../assets/img/half1.jpeg" class="img-fluid" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -435,7 +435,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 
       <div class="col-md-6 gx-5 mb-4">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="img/half2.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/half2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -460,7 +460,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       <!-- Card -->
       <div class="card mb-5"">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card1.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card1.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -485,7 +485,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card2.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -510,7 +510,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card3.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card3.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -732,7 +732,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
 <!-- Footer -->
 
     <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>

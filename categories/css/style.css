@@ -131,28 +131,28 @@ filter: invert(90%) hue-rotate(180deg);
 
 
 .carousel-item:nth-child(1) {
-  background-image: url('../img/herobg1.jpeg');
+  background-image: url('../../assets/img/herobg1.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
 .carousel-item:nth-child(2) {
-  background-image: url('../img/herobg2.jpeg');
+  background-image: url('../../assets/img/herobg2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
 .carousel-item:nth-child(3) {
-  background-image: url('../img/herobg3.jpeg');
+  background-image: url('../../assets/img/herobg3.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
 .carousel-item:nth-child(4) {
-  background-image: url('../img/herobg4.jpeg');
+  background-image: url('../../assets/img/herobg4.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
