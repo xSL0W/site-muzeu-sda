@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/info.data.php.old");
+require_once($root."/info.data.php");
 require_once($root."/language.php");
 
 initLanguage();
@@ -48,7 +48,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../assets/css/mdb.min.css" />
+    <link rel="stylesheet" href="css/mdb.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 
   </head>
@@ -93,7 +93,7 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
           <a class="nav-link white-text" href="/main"><i class="white-text fa-sharp fa-solid fa-house me-1"></i><?php echo getTranslatedText('BTN_HOME');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link white-text" href="/categories"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
+          <a class="nav-link white-text" href="/categorii"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link white-text" href="/despre-noi"><i class="white-text fa-solid fa-address-card me-1"></i><?php echo getTranslatedText('BTN_ABOUT_US');?></a>
@@ -732,7 +732,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
 <!-- Footer -->
 
     <!-- MDB -->
-    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>

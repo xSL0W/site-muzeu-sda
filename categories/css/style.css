@@ -1,0 +1,167 @@
+.map-responsive{
+overflow:hidden;
+padding-bottom:40%;
+position:relative;
+height:0;
+}
+.map-responsive iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+filter: invert(90%) hue-rotate(180deg);
+
+}
+
+.bg-darkgray
+{
+  background-color: #111220;
+}
+  
+/*
+#25275D - albastru inchis
+#464866 - gri inchis
+#AAABB8 - gri deschis
+#2E9CCA - albastru deschs
+#29648A- albastru mediu
+*/
+
+
+.main-gradient
+{
+    background: linear-gradient(
+        45deg,
+        hsla(169, 84.5%, 52%, 0.4),
+        hsla(263, 87.7%, 44.7%, 0.4) 100%
+      );
+}
+
+
+.secondary-gradient
+{
+    background: linear-gradient(
+        45deg,
+        rgba(17, 204, 42, 0.4),
+        rgba(17, 176, 204, 0.4) 100%
+      );
+}
+
+.fit-img {
+
+}
+
+.nav-link:hover
+{
+  color:rgb(18, 165, 250) !important;
+}
+
+
+* 
+{
+  color:#fff;
+}
+
+
+ 
+.divider-sm
+{
+  height:4px !important;
+}
+  
+.divider-md
+{
+  height:8px !important;
+}
+
+.divider-bg
+{
+  height:14px !important;
+}
+  
+.primary-text
+{
+  color: rgb(0, 132, 255)
+}
+
+.primary-btn
+{
+  background-color: rgb(0, 132, 255);
+}
+
+.navbar-bg
+{
+  background-color: #222468;
+}
+
+.white-text
+{
+  color:#fff;
+}
+
+.card-body
+{
+  background-color: #191b4b;
+}
+
+.card:bg
+{
+  background-color: #222 !important;
+}
+
+.white-bg
+{
+  background-color:#fff;
+}
+
+
+.footer-bg
+{
+  background-color: #222468;
+}
+
+
+
+/* Carousel styling */
+.hero-size
+{
+  height: 100vh;
+}
+
+
+
+.carousel-item:nth-child(1) {
+  background-image: url('../img/herobg1.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(2) {
+  background-image: url('../img/herobg2.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+  background-image: url('../img/herobg3.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(4) {
+  background-image: url('../img/herobg4.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #heroCarousel {
+    margin-top: -58.59px;
+  }
+}
+
