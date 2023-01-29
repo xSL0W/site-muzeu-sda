@@ -34,7 +34,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Muzeul Puskas Tivadar</title>
+    <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -85,7 +85,7 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0 " href="/main">
         <!--<img src="../logo-sm.png" class="" height="50"/>-->
-        <a class="white-text me-4">Puskas Tivadar </a>
+        <a class="white-text me-4"><?php echo getTranslatedText('SITE_TITLE');?></a>
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
@@ -213,7 +213,7 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
                 <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -226,7 +226,7 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
                 <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
                 <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -252,7 +252,7 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
                 <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('MORE')?></a>
+                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -337,44 +337,6 @@ $$$$$$\ $$ |  $$ |$$ |     \$$$$$$  |$$ |      $$ | $$ | $$ |\$$$$$$$ | \$$$$  |
 
 
 <hr class="hr hr-blurry mb-6"/>
-
-
-<div class="container">
-  <!--Section: Content-->
-  <section>
-    <div class="row">
-      <div class="col-md-6 gx-5 mb-4">
-        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-6 gx-5 mb-4">
-        <h4><strong>Facilis consequatur eligendi</strong></h4>
-        <p class="text-muted">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          consequatur eligendi quisquam doloremque vero ex debitis
-          veritatis placeat unde animi laborum sapiente illo possimus,
-          commodi dignissimos obcaecati illum maiores corporis.
-        </p>
-        <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
-        <p class="text-muted">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          itaque voluptate nesciunt laborum incidunt. Officia, quam
-          consectetur. Earum eligendi aliquam illum alias, unde optio
-          accusantium soluta, iusto molestiae adipisci et?
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<!--Section: Content-->
-
-
-
 <!--
  $$$$$$\                       $$\                          $$\                             
 $$  __$$\                      $$ |                         $$ |                            
@@ -389,8 +351,62 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
                                                                                                                                                                                                                             
  -->
 
+<div class="container">
+  <!--Section: Content-->
+  <section>
+    <div class="row">
+      <div class="col-md-6 gx-5 mb-4">
+        <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+          <img src="img/half1.jpeg" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 gx-5 mb-4">
+        <h4><strong>Facilis consequatur eligendi</strong></h4>
+
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+          consequatur eligendi quisquam doloremque vero ex debitis
+          veritatis placeat unde animi laborum sapiente illo possimus,
+          commodi dignissimos obcaecati illum maiores corporis.
+        </p>
+
+         <p class="text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+          itaque voluptate nesciunt laborum incidunt. Officia, quam
+          consectetur. Earum eligendi aliquam illum alias, unde optio
+          accusantium soluta, iusto molestiae adipisci et?
+         </p>
+
+         <p class="text-muted">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+           consequatur eligendi quisquam doloremque vero ex debitis
+           veritatis placeat unde animi laborum sapiente illo possimus,
+           commodi dignissimos obcaecati illum maiores corporis.
+         </p>
+
+         <p class="text-muted">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+           itaque voluptate nesciunt laborum incidunt. Officia, quam
+           consectetur. Earum eligendi aliquam illum alias, unde optio
+           accusantium soluta, iusto molestiae adipisci et?
+         </p>
+      </div>
+    </div>
+  </section>
+</div>
+<!--Section: Content-->
+
+
+
+
+
  <hr class="hr hr-blurry mb-6" />
 
+ 
 
  <div class="container">
   <!--Section: Content-->
@@ -406,18 +422,32 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           veritatis placeat unde animi laborum sapiente illo possimus,
           commodi dignissimos obcaecati illum maiores corporis.
         </p>
-        <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
-        <p class="text-muted">
+
+         <p class="text-muted">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
           itaque voluptate nesciunt laborum incidunt. Officia, quam
           consectetur. Earum eligendi aliquam illum alias, unde optio
           accusantium soluta, iusto molestiae adipisci et?
-        </p>
+         </p>
+
+         <p class="text-muted">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+           consequatur eligendi quisquam doloremque vero ex debitis
+           veritatis placeat unde animi laborum sapiente illo possimus,
+           commodi dignissimos obcaecati illum maiores corporis.
+         </p>
+
+         <p class="text-muted">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+           itaque voluptate nesciunt laborum incidunt. Officia, quam
+           consectetur. Earum eligendi aliquam illum alias, unde optio
+           accusantium soluta, iusto molestiae adipisci et?
+         </p>
       </div>
 
       <div class="col-md-6 gx-5 mb-4">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+          <img src="img/half2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -433,22 +463,27 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 <div class="container text-center mb-4">
   <div class="row">
 
-    <!-- First column -->
+  <h2 class="mb-1 white-text fw-bold">Cateva din exponatele noastre...</h2>
+  <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
+    
+  <!-- First column -->
     <div class="col-md">
 
       <!-- Card -->
-      <div class="card mb-5">
+      <div class="card mb-5"">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
+          <img src="img/card1.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title fw-underline">Card title</h5>
+          <hr class="hr hr-blurry mb-3" />
+
           <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
       <!-- Card -->
@@ -462,16 +497,18 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
+          <img src="img/card2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
         </div>
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
+          <hr class="hr hr-blurry mb-3" />
+
           <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
       <!-- Card -->
@@ -485,16 +522,18 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/113.webp" class="img-fluid" />
+          <img src="img/card3.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
         </div>
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
+          <hr class="hr hr-blurry mb-3" />
+
           <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="#!" class="btn btn-info btn-rounded">Button</a>
+          <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
       <!-- Card -->
@@ -537,9 +576,9 @@ $$ | \_/ $$ |\$$$$$$$ |$$$$$$$  |$$$$$$$  |
       <h4 class="mb-6 primary-text fw-bold"><i class="primary-text fa-1x fa-sharp fa-solid fa-location-dot"></i> Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
 
       <!--Google map-->
-      <div class="container-fluid">
+      <div>
         <div class="map-responsive border border-2 border-primary" >
-          <iframe src="https://maps.google.com/maps?q=muzeul-national-secuiesc&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://maps.google.com/maps?q=Liceul+Tehnologic+Puskás+Tivadar&ie=UTF8&iwloc=&output=embed&z=13" allowfullscreen></iframe>
         </div>
       </div>
       <!-- Google Maps-->
@@ -578,7 +617,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
     <section class="d-flex justify-content-center justify-content-lg-between p-4 pb-1">
       <!-- Left -->
       <div class="text-white me-5 d-none d-lg-block">
-        <span>Get connected with us on social networks:</span>
+        <span><?php echo getTranslatedText('FOOTER_FOLLOW_US');?></span>
       </div>
 
       
@@ -623,10 +662,10 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-white text-uppercase fw-bold mb-4">
-              <i class="fas fa-heart me-3"></i>Muzeul Puskas Tivadar
+              <i class="fas fa-heart me-3"></i><?php echo getTranslatedText('SITE_TITLE');?>
             </h6>
             <p class="text-white">
-              Va asteptam cu drag sa vizitati muzeul nostru cu exponate care dateaza inca din anul 1900 pana in prezent.
+              <?php echo getTranslatedText('FOOTER_DESCRIPTION');?>
             </p>
           </div>
           <!-- Grid column -->
@@ -697,8 +736,8 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
 
   <!-- Copyright -->
   <div class="text-white text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2023 Copyright:
-    <a class="text-white fw-bold" href="">Muzeul Puskas Tivadar</a>
+    © 2023 Copyright - 
+    <a class="text-white fw-bold" href=""><?php echo getTranslatedText('SITE_TITLE');?></a>
   </div>
   <!-- Copyright -->
 </footer>

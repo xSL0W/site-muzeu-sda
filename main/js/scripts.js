@@ -12,3 +12,6 @@ function sendLanguage(data)
   };
   xhr.send("lang="+data);
 }
+
+
+

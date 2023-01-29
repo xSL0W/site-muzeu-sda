@@ -5,9 +5,11 @@ function getTranslatedText($phrase)
 {
     $lang_text = array(
         'ro'=> array(
+            'SITE_TITLE'=>'Muzeul Puskas Tivadar',
+
             'WELCOME_HERO_TITLE'=>'Bine ai venit pe pagina web a muzeului Puskas Tivadar!',
             'WELCOME_HERO_DESC'=>'Apasa pe butonul de mai jos pentru a vedea mai multe informatii',
-            'MORE'=>'Mai multe',
+            'SEE_MORE'=>'Mai multe',
 
             'BTN_HOME'=>'Acasa',
             'BTN_EXHIBITS'=>'Exponate',
@@ -18,11 +20,16 @@ function getTranslatedText($phrase)
             'INFO_SPONSOR'=>'Sustinatorul muzeului',
             'INFO_EXHIBITS'=>'Exponate',
             'INFO_YEARS_OLD'=>'Vechime',
+
+            'FOOTER_FOLLOW_US'=>'Urmareste-ne pe social media: ',
+            'FOOTER_DESCRIPTION'=>'Va asteptam cu drag sa vizitati muzeul nostru cu exponate care dateaza inca din anul 1900 pana in prezent. ',
         ),
         'en'=> array(
+            'SITE_TITLE'=>'Puskas Tivadar Museum',
+
             'WELCOME_HERO_TITLE'=>'Welcome to the web page of Puskas Tivadar museum!',
             'WELCOME_HERO_DESC'=>'Press on the button below for more informations',
-            'MORE'=>'More',
+            'SEE_MORE'=>'See more',
 
             'BTN_HOME'=>'Home',
             'BTN_EXHIBITS'=>'Exhibits',
@@ -32,12 +39,17 @@ function getTranslatedText($phrase)
             'INFO_VISIT_HOURS'=>'Visit Hours',
             'INFO_SPONSOR'=>'Official Sponsor',
             'INFO_EXHIBITS'=>'Exhibits',
-            'INFO_YEARS_OLD'=>'Years Old',            
+            'INFO_YEARS_OLD'=>'Years Old',  
+            
+            'FOOTER_FOLLOW_US'=>'Follow us on social media: ',
+            'FOOTER_DESCRIPTION'=>'We are waiting for you to visit our lovely museum that contains exhibits from 90s to present. ',            
         ),
         'hu'=> array(
+            'SITE_TITLE'=>'Puskás Tivadar Múzeum',
+
             'WELCOME_HERO_TITLE'=>'Szolgált az iparban mikor egy összeállította Puskas Tivadar!',
             'WELCOME_HERO_DESC'=>'Ez egy régóta elfogadott tény, miszerint egy olvasót zavarja az olvasható szöveg',
-            'MORE'=>'értelmessé',
+            'SEE_MORE'=>'se értelmessé',
 
             'BTN_HOME'=>'Szerkesztõ',
             'BTN_EXHIBITS'=>'Szövegmodellt',
@@ -48,6 +60,9 @@ function getTranslatedText($phrase)
             'INFO_SPONSOR'=>'Szponzorok',
             'INFO_EXHIBITS'=>'Kiállítások',
             'INFO_YEARS_OLD'=>'RÉGI',            
+
+            'FOOTER_FOLLOW_US'=>'Kövessen minket a közösségi médiában: ',
+            'FOOTER_DESCRIPTION'=>'Az 1900-as évektől napjainkig visszanyúló kiállításokkal várjuk múzeumunkba. ',
         )
     );
 
