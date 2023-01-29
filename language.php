@@ -15,6 +15,8 @@ function getTranslatedText($phrase)
             'BTN_EXHIBITS'=>'Exponate',
             'BTN_ABOUT_US'=>'Despre noi',
             'BTN_LOCATION'=>'Locatie',
+
+            'MAPS_WHERE_ARE_WE'=>'Unde ne aflam?',
             
             'INFO_VISIT_HOURS'=>'Program vizitare',
             'INFO_SPONSOR'=>'Sustinatorul muzeului',
@@ -35,6 +37,8 @@ function getTranslatedText($phrase)
             'BTN_EXHIBITS'=>'Exhibits',
             'BTN_ABOUT_US'=>'About us',
             'BTN_LOCATION'=>'Location', 
+
+            'MAPS_WHERE_ARE_WE'=>'Where are we?',
             
             'INFO_VISIT_HOURS'=>'Visit Hours',
             'INFO_SPONSOR'=>'Official Sponsor',
@@ -55,6 +59,8 @@ function getTranslatedText($phrase)
             'BTN_EXHIBITS'=>'Szövegmodellt',
             'BTN_ABOUT_US'=>'Ellentétben',
             'BTN_LOCATION'=>'Többé',    
+
+            'MAPS_WHERE_ARE_WE'=>'Hol vagyunk?',
             
             'INFO_VISIT_HOURS'=>'Látogatási program',
             'INFO_SPONSOR'=>'Szponzorok',

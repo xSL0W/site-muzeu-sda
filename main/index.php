@@ -355,7 +355,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
   <!--Section: Content-->
   <section>
     <div class="row">
-      <div class="col-md-6 gx-5 mb-4">
+      <div class="col-md-6 gx-5 mb-6">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
           <img src="img/half1.jpeg" class="img-fluid" />
           <a href="#!">
@@ -364,31 +364,25 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
         </div>
       </div>
 
-      <div class="col-md-6 gx-5 mb-4">
+      <div class="col-md-6 gx-5 mb-6 ">
         <h4><strong>Facilis consequatur eligendi</strong></h4>
 
-        <p class="text-muted">
+        <p class="text-muted d-flex justify-content-center align-items-center h-100">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           consequatur eligendi quisquam doloremque vero ex debitis
           veritatis placeat unde animi laborum sapiente illo possimus,
           commodi dignissimos obcaecati illum maiores corporis.
-        </p>
 
-         <p class="text-muted">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
           itaque voluptate nesciunt laborum incidunt. Officia, quam
           consectetur. Earum eligendi aliquam illum alias, unde optio
           accusantium soluta, iusto molestiae adipisci et?
-         </p>
 
-         <p class="text-muted">
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
            consequatur eligendi quisquam doloremque vero ex debitis
            veritatis placeat unde animi laborum sapiente illo possimus,
            commodi dignissimos obcaecati illum maiores corporis.
-         </p>
 
-         <p class="text-muted">
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
            itaque voluptate nesciunt laborum incidunt. Officia, quam
            consectetur. Earum eligendi aliquam illum alias, unde optio
@@ -414,30 +408,24 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
     <div class="row">
 
 
-      <div class="col-md-6 gx-5 mb-4">
+      <div class="col-md-6 gx-5 mb-6">
         <h4><strong>Facilis consequatur eligendi</strong></h4>
-        <p class="text-muted">
+        <p class="text-muted d-flex justify-content-center align-items-center h-100">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           consequatur eligendi quisquam doloremque vero ex debitis
           veritatis placeat unde animi laborum sapiente illo possimus,
           commodi dignissimos obcaecati illum maiores corporis.
-        </p>
 
-         <p class="text-muted">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
           itaque voluptate nesciunt laborum incidunt. Officia, quam
           consectetur. Earum eligendi aliquam illum alias, unde optio
           accusantium soluta, iusto molestiae adipisci et?
-         </p>
 
-         <p class="text-muted">
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
            consequatur eligendi quisquam doloremque vero ex debitis
            veritatis placeat unde animi laborum sapiente illo possimus,
            commodi dignissimos obcaecati illum maiores corporis.
-         </p>
 
-         <p class="text-muted">
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
            itaque voluptate nesciunt laborum incidunt. Officia, quam
            consectetur. Earum eligendi aliquam illum alias, unde optio
@@ -572,8 +560,8 @@ $$ | \_/ $$ |\$$$$$$$ |$$$$$$$  |$$$$$$$  |
   <section class="page-section  text-white">
     <div class="container text-center">
       
-      <h2 class="mb-1 white-text fw-bold">Unde ne aflam?</h2>
-      <h4 class="mb-6 primary-text fw-bold"><i class="primary-text fa-1x fa-sharp fa-solid fa-location-dot"></i> Piața Libertății 7, Sfântu Gheorghe, Romania</h3>
+      <h2 class="mb-1 white-text fw-bold"><?php echo getTranslatedText('MAPS_WHERE_ARE_WE');?></h2>
+      <h4 class="mb-6 primary-text fw-bold"><i class="primary-text fa-1x fa-sharp fa-solid fa-location-dot"></i> Str. Pescarilor, Sf. Gheorghe, Covasna</h3>
 
       <!--Google map-->
       <div>
@@ -674,7 +662,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">
-              Links Category 1
+              Links 1
             </h6>
             <p>
               <a href="#!" class="text-white">Link 1</a>
@@ -695,7 +683,7 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">
-              Links Category 2
+              Links 2
             </h6>
             <p>
               <a href="#!" class="text-white">Link 5</a>
@@ -716,10 +704,10 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-white text-uppercase fw-bold mb-4">Contact</h6>
-            <p class="text-white"><i class="fas fa-home me-3"></i> Piața Libertății 7, Sf. Gheorghe, RO</p>
+            <p class="text-white"><i class="fas fa-home me-3"></i> Str. Pescarilor, Sf. Gheorghe, Covasna</p>
             <p class="text-white">
               <i class="fas fa-envelope me-3"></i>
-              contact@muzeulpuskastivadar.ro
+              contact@puskastivadar.ro
             </p>
             <p class="text-white"><i class="fas fa-phone me-3"></i> +40752516254</p>
             <p class="text-white"><i class="fas fa-print me-3"></i> +40727612542</p>
