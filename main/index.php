@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/info.data.php.old");
+require_once($root."/info.data.old.php");
 require_once($root."/language.php");
 
 initLanguage();
@@ -36,7 +36,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../assets/img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -137,10 +137,9 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
 
       <!-- Avatar -->
       <div class="dropdown">
-        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-          <img src="<?php echo getAvatar();?>" class="rounded-circle" height="25"
-               alt="Black and White Portrait of a Man" loading="lazy" />
+        <a class="dropdown-toggle d-flex align-items-center hidden-arrow white-text" href="#" id="navbarDropdownMenuAvatar"
+           role="button" data-mdb-toggle="dropdown" aria-expanded="false"> <?php if(isset($_SESSION['name'])) echo "".$_SESSION['name'];?>
+           <img src="<?php echo getAvatar();?>" class="rounded-circle me-2" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
           <?php 
@@ -357,7 +356,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
     <div class="row">
       <div class="col-md-6 gx-5 mb-6">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="img/half1.jpeg" class="img-fluid" />
+          <img src="../assets/img/half1.jpeg" class="img-fluid" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -435,7 +434,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 
       <div class="col-md-6 gx-5 mb-4">
         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-          <img src="img/half2.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/half2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -455,12 +454,12 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
   <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
     
   <!-- First column -->
-    <div class="col-md">
+    <div class="col-md-4 mb-4 d-flex align-items-stretch">
 
       <!-- Card -->
       <div class="card mb-5"">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card1.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card1.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -480,12 +479,12 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
     <!-- First column -->
 
     <!-- Second column -->
-    <div class="col-md">
+    <div class="col-md-4 mb-4 d-flex align-items-stretch">
 
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card2.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card2.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
@@ -505,12 +504,12 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
     <!-- Second column -->
 
     <!-- Third column -->
-    <div class="col-md">
+    <div class="col-md-4 mb-4 d-flex align-items-stretch">
 
       <!-- Card -->
       <div class="card mb-5">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="img/card3.jpeg" class="img-fluid fit-img" />
+          <img src="../assets/img/card3.jpeg" class="img-fluid fit-img" />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>

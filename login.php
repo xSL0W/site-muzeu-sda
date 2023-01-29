@@ -37,6 +37,7 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 $email = $password = $email_err = $password_err = $login_err = "";
+$db = mysqli_start();
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -64,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty($email_err) && empty($password_err))
     {
         // Prepare a select statement
-        $sql = "SELECT id, email, pass FROM users WHERE email = ?";
+        $sql = "SELECT * FROM users WHERE email = ?";
         
         if($stmt = mysqli_prepare($db, $sql))
         {
@@ -85,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 if(mysqli_stmt_num_rows($stmt) == 1)
                 {    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $email, $name, $role, $hashed_password);
                     if(mysqli_stmt_fetch($stmt))
                     {
                         if(password_verify($password, $hashed_password))
@@ -96,7 +97,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;                            
+                            $_SESSION["email"] = $email;      
+                            $_SESSION["name"] = $name;
+                            $_SESSION["role"] = $role;                   
                             
                             // Redirect user to welcome page
                             header("location: /index.php");
@@ -125,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     
     // Close connection
-    mysqli_close($db);
+    mysqli_stop($db);
 }
 ?>
     
@@ -152,14 +155,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
               <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <div class="form-outline form-white mb-4">
-                <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" />
                 <label class="form-label" for="typeEmailX">Email</label>
+                <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" />
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
               </div>
 
               <div class="form-outline form-white mb-4">
+              <label class="form-label" for="typePasswordX">Parola</label>
                 <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"" />
-                <label class="form-label" for="typePasswordX">Parola</label>
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
               </div>
 

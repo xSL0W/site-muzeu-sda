@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/info.data.php.old");
+require_once($root."/info.data.old.php");
 require_once($root."/language.php");
 
 initLanguage();
@@ -212,8 +212,6 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
-                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -225,8 +223,6 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
-                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -238,8 +234,6 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
-                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -251,8 +245,6 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
                 <h1 class="mb-3"><?php echo getTranslatedText('WELCOME_HERO_TITLE')?></h1>
-                <h5 class="mb-4"><?php echo getTranslatedText('WELCOME_HERO_DESC')?></h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#description" role="button"><?php echo getTranslatedText('SEE_MORE')?></a>
               </div>
             </div>
           </div>
@@ -268,16 +260,24 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
 
 
 
-
+<!--
+          $$\                                                         $$\                                             $$\                     
+          $$ |                                                        $$ |                                            \__|                    
+ $$$$$$$\ $$$$$$$\   $$$$$$\  $$\  $$\  $$\        $$$$$$$\ $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  $$\  $$$$$$\   $$$$$$$\ 
+$$  _____|$$  __$$\ $$  __$$\ $$ | $$ | $$ |      $$  _____|\____$$\\_$$  _|  $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$ |$$  __$$\ $$  _____|
+\$$$$$$\  $$ |  $$ |$$ /  $$ |$$ | $$ | $$ |      $$ /      $$$$$$$ | $$ |    $$$$$$$$ |$$ /  $$ |$$ /  $$ |$$ |  \__|$$ |$$$$$$$$ |\$$$$$$\  
+ \____$$\ $$ |  $$ |$$ |  $$ |$$ | $$ | $$ |      $$ |     $$  __$$ | $$ |$$\ $$   ____|$$ |  $$ |$$ |  $$ |$$ |      $$ |$$   ____| \____$$\ 
+$$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$$$$$$$\ \$$$$$$$ |\$$$$$$  |$$ |      $$ |\$$$$$$$\ $$$$$$$  |
+\_______/ \__|  \__| \______/  \_____\____/        \_______|\_______|  \____/  \_______| \____$$ | \______/ \__|      \__| \_______|\_______/ 
+                                                                                        $$\   $$ |                                            
+                                                                                        \$$$$$$  |                                            
+                                                                                         \______/                                             
+-->
 
 
 <div class="container text-center mb-4">
-  <div class="row">
-
   <h2 class="mb-1 white-text fw-bold">Cateva din exponatele noastre...</h2>
   <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
-
-
   <?php
   $lang = getLanguage();
   $db = mysqli_start();
@@ -290,16 +290,16 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
       <div class="row"> 
     <?php 
     } // open row div at start/every 3 items?> 
-      <div class="col-md">
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
 
         <!-- Card -->
-        <div class="card mb-5" >
+        <div class="card mb-6" >
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="<?php echo $categories['image_path']?>" class="img-fluid fit-img"/>
-            <a> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+            <img src="<?php echo $categories['image_path']?>" class="img-fluid"/>
+            <a href="<?php echo "/posts/index.php?name=".$categories['name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
           </div>
           <div class="card-body">
-            <h5 class="card-title fw-underline"><?php echo $categories['name']?></h5>
+            <a href="<?php echo "/posts/index.php?name=".$categories['name']?>"><h5 class="card-title fw-underline"><?php echo $categories['name']?></h5></a>
             <hr class="hr hr-blurry mb-3" />
             <p class="card-text text-muted"><?php echo $categories['text'] ?></p>
             <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
@@ -319,7 +319,7 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
   </div> 
   <?php } // make sure you close the div 
 
-  mysqli_stop($db);?>
+  mysqli_stop($db); // pls dont forget this again?> 
 
   </div>
 </div>

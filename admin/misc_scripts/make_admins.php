@@ -1,0 +1,41 @@
+<?php
+session_start();
+
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/info.data.old.php");
+require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+
+$config = HTMLPurifier_Config::createDefault();
+$purifier = new HTMLPurifier($config);
+
+if(!isLoggedIn() || !isAdmin())
+{
+    header("Location: /");
+    die();
+}
+
+require_once($root."/config.php");
+$db = mysqli_start();
+
+
+$email = $_POST['inputEmail'];
+$name = $_POST['inputName'];
+$password = $_POST['inputPassword'];
+$role = $_POST['inputRole'];
+
+$email = $purifier->purify($email);
+$name = $purifier->purify($name);
+$password = $purifier->purify($password);
+$role = $purifier->purify($role);
+
+
+addUser($email, $name, $password, $role, $db);
+
+
+function AddUser($email, $name, $password, $role, $db)
+{
+    $add_stmt = mysqli_prepare($db, "INSERT INTO users (id, email, name, pass, role) VALUES (NULL, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($add_stmt, 'ssss', $email, $name, $password, $role);
+    mysqli_stmt_execute($add_stmt);
+}
+exit;
