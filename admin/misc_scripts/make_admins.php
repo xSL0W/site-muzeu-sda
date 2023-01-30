@@ -29,8 +29,10 @@ $name = $purifier->purify($name);
 $password = $purifier->purify($password);
 $role = $purifier->purify($role);
 
+$hashed_pass = password_hash($password, PASSWORD_DEFAULT); 
 
-addUser($email, $name, $password, $role, $db);
+
+addUser($email, $name, $hashed_pass, $role, $db);
 
 
 function AddUser($email, $name, $password, $role, $db)
