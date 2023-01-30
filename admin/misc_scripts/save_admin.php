@@ -1,7 +1,7 @@
 <?php
 session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
-require_once($root."info.data.old.php");
+require_once($root."/funcs.php");
 
 if(!isLoggedIn() || !isAdmin())
 {

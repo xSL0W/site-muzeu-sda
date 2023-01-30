@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/info.data.old.php");
+require_once($root."/funcs.php");
 require_once($root."/language.php");
 
 initLanguage();

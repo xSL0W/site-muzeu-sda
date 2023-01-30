@@ -2,11 +2,8 @@
 session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
-require_once($root."/info.data.old.php");
-require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+require_once($root."/funcs.php");
 
-$config = HTMLPurifier_Config::createDefault();
-$purifier = new HTMLPurifier($config);
 
 if(!isLoggedIn() || !isAdmin())
 {
@@ -18,10 +15,10 @@ require_once($root."/config.php");
 $db = mysqli_start();
 
 
-$email = $_POST['inputEmail'];
-$name = $_POST['inputName'];
-$password = $_POST['inputPassword'];
-$role = $_POST['inputRole'];
+$email = $_POST['email'];
+$name = $_POST['name'];
+$password = $_POST['password'];
+$role = $_POST['role'];
 
 $email = $purifier->purify($email);
 $name = $purifier->purify($name);
@@ -38,4 +35,7 @@ function AddUser($email, $name, $password, $role, $db)
     mysqli_stmt_bind_param($add_stmt, 'ssss', $email, $name, $password, $role);
     mysqli_stmt_execute($add_stmt);
 }
+
+header("Location: ".$_SERVER['HTTP_REFERER']);
+
 exit;

@@ -5,7 +5,7 @@ session_start();
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 
-require_once($root."/info.data.old.php");
+require_once($root."/funcs.php");
 
 if(!isLoggedIn() || !isAdmin())
 {
@@ -240,7 +240,7 @@ initLanguage();
                       <h5 class="modal-title" id="exampleModalLabel">Add Admins</h5>
                       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="misc_scripts/process.php" method="post">
+                    <form action="misc_scripts/make_admins.php" method="post">
                       <div class="modal-body">
                         
                         <div class="form-group">
