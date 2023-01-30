@@ -277,47 +277,71 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
 
 
 <div class="container text-center mb-4">
-  <h2 class="mb-1 white-text fw-bold">Categorii exponate</h2>
-  <h4 class="mb-6 primary-text fw-bold">Apasa pe una dintre ele pentru a vedea mai multe</h3>
+  <h2 class="mb-1 white-text fw-bold">Cateva din exponatele noastre...</h2>
+  <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
   <?php
   $lang = getLanguage();
   $db = mysqli_start();
-  $query = QUERY_GET_CATEGORIES_BY_LANG($db, $lang);
-  $count = 0;
 
-  while ($categories = mysqli_fetch_assoc($query)) 
-  { 
-    if($count == 0 || $count % 3 == 0) {  ?> <div class="row"> <?php } // open row div at start/every 3 items?> 
-      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+  
+  require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
 
-        <!-- Card -->
-        <div class="card mb-6" >
-          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="<?php echo $categories['image_path']?>" class="img-fluid"/>
-            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+  // HTML Purifer (sanitizer)
+  $config = HTMLPurifier_Config::createDefault();
+  $purifier = new HTMLPurifier($config);
+
+
+  if(isset($_GET['category']))
+  {
+    $category = $_GET['category'];
+    $category = $purifier->purify($category);
+  }
+
+  echo "category= " . $category . " id=" . GET_CATEGORY_ID_BY_URLNAME($db, $category);
+
+
+  if(!empty($category) && (GET_CATEGORY_ID_BY_URLNAME($db, $category)) > 0)
+  {
+  
+    $query = QUERY_GET_POSTS($db, $lang, $category);
+    $count = 0;
+
+
+    while ($posts = mysqli_fetch_assoc($query)) 
+    { 
+      if($count == 0 || $count % 3 == 0) {  ?> <div class="row"> <?php } // open row div at start/every 3 items?> 
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+
+          <!-- Card -->
+          <div class="card mb-6" >
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="<?php echo $posts['image_path']?>" class="img-fluid"/>
+              <a href="<?php echo "/posts/view.php?category=".$category."&name=".$posts['url_title']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+            </div>
+            <div class="card-body">
+              <a href="<?php echo "/posts/view.php?category=".$category."&name=".$posts['url_title']?>"><h5 class="card-title fw-underline"><?php echo $posts['title']?></h5></a>
+              <hr class="hr hr-blurry mb-3" />
+              <p class="card-text text-muted"><?php echo $posts['description'] ?></p>
+              <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
+            </div>
           </div>
-          <div class="card-body">
-            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"><h5 class="card-title fw-underline"><?php echo $categories['name']?></h5></a>
-            <hr class="hr hr-blurry mb-3" />
-            <p class="card-text text-muted"><?php echo $categories['text'] ?></p>
-            <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
-          </div>
+          <!-- Card -->
         </div>
-        <!-- Card -->
-      </div>
-      <?php 
-      $count++; 
+        <?php 
+        $count++; 
 
-    if($count % 3 == 0) {?> </div> <?php } // close the row div every 3 items
-   } // closing while loop
+      if($count % 3 == 0) {?> </div> <?php } // close the row div every 3 items
+    } // closing while loop
 
-  if($count % 3 != 0) {?> </div> <?php } // make sure you close the div 
+    if($count % 3 != 0) {?> </div> <?php } // make sure you close the div 
 
-  mysqli_stop($db); // pls dont forget this again?> 
+    mysqli_stop($db); // pls dont forget this again?> 
 
+    </div>
   </div>
+<?php
+} else echo "<h1 class='text-danger fw-bold'>ERROR: Category is invalid.</h1>"; ?>
 </div>
-
 
 <hr class="hr hr-blurry mb-6" />
 
