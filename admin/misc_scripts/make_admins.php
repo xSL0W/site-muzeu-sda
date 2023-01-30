@@ -3,7 +3,11 @@ session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/funcs.php");
+require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
 
+// HTML Purifer (sanitizer)
+$config = HTMLPurifier_Config::createDefault();
+$purifier = new HTMLPurifier($config);
 
 if(!isLoggedIn() || !isAdmin())
 {
@@ -36,6 +40,7 @@ function AddUser($email, $name, $password, $role, $db)
     mysqli_stmt_execute($add_stmt);
 }
 
+mysqli_stop($db);
 header("Location: ".$_SERVER['HTTP_REFERER']);
 
 exit;

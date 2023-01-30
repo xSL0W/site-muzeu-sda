@@ -10,6 +10,11 @@ if(!isLoggedIn() || !isAdmin())
 }
 
 require_once($root."/config.php");
+require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+
+// HTML Purifer (sanitizer)
+$config = HTMLPurifier_Config::createDefault();
+$purifier = new HTMLPurifier($config);
 
 $db = mysqli_start();
 
@@ -19,7 +24,11 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $role = $_POST["role"];
 
-echo $email;
+$email = $purifier->purify($email);
+$name = $purifier->purify($name);
+$password = $purifier->purify($password);
+$role = $purifier->purify($role);
+
 
 // Add your code here to process the data and save it to the database
 editUser($id, $email, $name, $role, $db);

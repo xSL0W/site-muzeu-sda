@@ -13,17 +13,25 @@ if(!isLoggedIn() || !isAdmin())
 
 
 require_once($root."/config.php");
+require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+
+// HTML Purifer (sanitizer)
+$config = HTMLPurifier_Config::createDefault();
+$purifier = new HTMLPurifier($config);
+
 $db = mysqli_start();
 
-
-
-header("HTTP/1.1 204 No Content");
 
 if (isset($_POST["id"])) 
 {
     $id = $_POST['id'];
+    $id = $purifier->purify($id);
+
     deleteUser($id, $db);
 }
+
+
+
 function deleteUser($id, $db)
 {
     $del_stmt = mysqli_prepare($db, "DELETE FROM users WHERE id = ?");
@@ -31,6 +39,7 @@ function deleteUser($id, $db)
     mysqli_stmt_execute($del_stmt);
 }
 
+mysqli_stop($db);
 header("Location: ".$_SERVER['HTTP_REFERER']);
 exit;
 

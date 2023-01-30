@@ -3,11 +3,7 @@
 // Include config file
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
-require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
 
-// HTML Purifer (sanitizer)
-$config = HTMLPurifier_Config::createDefault();
-$purifier = new HTMLPurifier($config);
 
 
 

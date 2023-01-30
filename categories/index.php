@@ -6,6 +6,7 @@ session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
 require_once($root."/funcs.php");
+require_once($root."/querys.php");
 require_once($root."/language.php");
 
 initLanguage();
@@ -281,7 +282,7 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
   <?php
   $lang = getLanguage();
   $db = mysqli_start();
-  $result = $db->query("SELECT * FROM `categories` WHERE `lang` = '$lang';");
+  $result = categoryQuery($db, $lang);
   $count = 0;
 
   while ($categories = mysqli_fetch_assoc($result)) 

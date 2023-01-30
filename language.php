@@ -1,5 +1,8 @@
 <?php 
 
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root."/assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+
 
 function getTranslatedText($phrase)
 {
@@ -78,10 +81,17 @@ function getTranslatedText($phrase)
 
 function initLanguage()
 {
+    // HTML Purifer (sanitizer)
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+
+
     // If lang found in url as paramater set it in cookies...
     if(isset($_GET["lang"]))
     {
         $lang = $_GET["lang"];
+        $lang = $purifier->purify($lang);
+
         if($lang==="ro")
         {
             $_SESSION['lang'] = "ro";
@@ -94,21 +104,44 @@ function initLanguage()
         {
             $_SESSION['lang'] = "hu";
         }
-        return;
-    }
-    
-    // if lang not found in url or cookie
-    if (!isset($_SESSION["lang"]))
-    { 
-        $_SESSION["lang"] = "ro";
+        else
+        {
+            $_SESSION['lang'] = "ro";
+        }
         return;
     }
 
     // if button sends new language
     if (isset($_POST["lang"])) 
     { 
-        $_SESSION["lang"] = trim($_POST["lang"]);
+        $lang = trim($_POST["lang"]);
+        $lang = $purifier->purify($lang);
+
+        if($lang==="ro")
+        {
+            $_SESSION['lang'] = "ro";
+        }
+        else if($lang === "en")
+        {
+            $_SESSION['lang'] = "en";
+        }
+        else if($lang === "hu")
+        {
+            $_SESSION['lang'] = "hu";
+        }
+        else
+        {
+            $_SESSION['lang'] = "ro";
+        }
+        
         return; 
+    }
+
+    // if lang not found in url or cookie
+    if (!isset($_SESSION["lang"]))
+    { 
+        $_SESSION["lang"] = "ro";
+        return;
     }
 }
 
