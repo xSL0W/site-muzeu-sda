@@ -282,25 +282,22 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
   <?php
   $lang = getLanguage();
   $db = mysqli_start();
-  $result = categoryQuery($db, $lang);
+  $query = QUERY_GET_CATEGORIES_BY_LANG($db, $lang);
   $count = 0;
 
-  while ($categories = mysqli_fetch_assoc($result)) 
+  while ($categories = mysqli_fetch_assoc($query)) 
   { 
-    if($count == 0 || $count % 3 == 0) {  ?> 
-      <div class="row"> 
-    <?php 
-    } // open row div at start/every 3 items?> 
+    if($count == 0 || $count % 3 == 0) {  ?> <div class="row"> <?php } // open row div at start/every 3 items?> 
       <div class="col-md-4 mb-4 d-flex align-items-stretch">
 
         <!-- Card -->
         <div class="card mb-6" >
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="<?php echo $categories['image_path']?>" class="img-fluid"/>
-            <a href="<?php echo "/posts/index.php?name=".$categories['name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+            <a href="<?php echo "/posts/index.php?name=".$categories['url_name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
           </div>
           <div class="card-body">
-            <a href="<?php echo "/posts/index.php?name=".$categories['name']?>"><h5 class="card-title fw-underline"><?php echo $categories['name']?></h5></a>
+            <a href="<?php echo "/posts/index.php?name=".$categories['url_name']?>"><h5 class="card-title fw-underline"><?php echo $categories['name']?></h5></a>
             <hr class="hr hr-blurry mb-3" />
             <p class="card-text text-muted"><?php echo $categories['text'] ?></p>
             <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
@@ -311,14 +308,10 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
       <?php 
       $count++; 
 
-    if($count % 3 == 0) {?> 
-      </div> <?php 
-    } // close the row div every 3 items
-  } // closing while loop
+    if($count % 3 == 0) {?> </div> <?php } // close the row div every 3 items
+   } // closing while loop
 
-  if($count % 3 != 0) {?> 
-  </div> 
-  <?php } // make sure you close the div 
+  if($count % 3 != 0) {?> </div> <?php } // make sure you close the div 
 
   mysqli_stop($db); // pls dont forget this again?> 
 

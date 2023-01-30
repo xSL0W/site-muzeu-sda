@@ -15,8 +15,7 @@ if(!isLoggedIn() || !isAdmin())
 
 require_once($root."/config.php");
 require_once($root."/language.php");
-require_once("misc_scripts/display_admins.php");
-
+require_once($root."/querys.php");
 
 initLanguage();
 ?>
@@ -149,13 +148,15 @@ initLanguage();
               </thead>
               <tbody>
               <?php
-                while($row = $user_data_result->fetch_assoc()) {
-                    echo "
+                $db = mysqli_start();
+                $query = QUERY_GET_USER_DATA($db);
+                while($row = mysqli_fetch_assoc($query)) 
+                { ?>
                     <tr>
-                        <th scope='row' class='text-center'>{$row["id"]}</td>
-                        <td class='text-center'>{$row["name"]}</td>
-                        <td class='text-center'>{$row["email"]}</td>
-                        <td class='text-center'>{$row["role"]}</td>
+                        <th scope='row' class='text-center'><?php echo $row["id"] ?></td>
+                        <td class='text-center'><?php echo $row["name"] ?></td>
+                        <td class='text-center'><?php echo $row["email"] ?></td>
+                        <td class='text-center'><?php echo $row["role"] ?></td>
                         <td class='text-center'>*******</td>
                         
                         <td class='text-center'>
@@ -164,14 +165,14 @@ initLanguage();
                         </td>
                         <td class='text-center'>
                             <form action='misc_scripts/delete_admins.php' method='post'>
-                                <input type='hidden' name='id' value='{$row["id"]}'>
+                                <input type='hidden' name='id' value='<?php echo $row["id"]?>'>
                                 <button class='btn btn-danger' type='submit id=reload-btn'>Delete</button>
                             </form>
                         </td>
                     </tr>
-                    ";
-                }
-                  ?>
+                <?php 
+              } 
+              mysqli_stop($db); ?>
               </tbody>
             </table>
 

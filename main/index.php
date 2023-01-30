@@ -468,8 +468,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           <h5 class="card-title fw-underline">Card title</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <p class="card-text text-muted">Nam tellus eros, finibus at libero vitae, luctus ultrices ex. Vestibulum mollis massa arcu. Quisque feugiat orci et nulla pretium scelerisque. Quisque ultricies mauris eget tempor vestibulum. Donec in enim vitae urna viverra rhoncus. Etiam vitae urna sit amet orci tempus tincidunt at nec justo. Vivamus maximus velit ut lacus semper, id ornare libero pharetra. Curabitur pharetra ac leo vitae dignissim. Suspendisse nec hendrerit est. Nullam eu ultrices felis, quis posuere leo. Nam eget mauris ut mauris tempus molestie ut id ligula.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
@@ -493,8 +492,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           <h5 class="card-title">Card title</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <p class="card-text text-muted">Donec augue enim, maximus et leo vel, laoreet iaculis dolor. Donec id dignissim dolor, at consequat nibh. Duis sit amet finibus metus, id iaculis enim. Phasellus ornare ipsum sit amet ornare congue. Mauris accumsan neque et massa mollis, at laoreet velit sodales. Etiam mollis neque molestie, rhoncus nisi volutpat, luctus nunc. Suspendisse efficitur, dui id porttitor porttitor, ante justo ultricies justo, dignissim congue purus diam ut nunc. Sed posuere faucibus bibendum. Nam ac justo mollis, feugiat quam id, lacinia ante.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
@@ -518,8 +516,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           <h5 class="card-title">Card title</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <p class="card-text text-muted">Praesent pharetra ac nisi eu interdum. Sed dapibus sem eu consectetur dictum. Nullam eget orci vulputate, porta ex in, fringilla tellus. Suspendisse egestas mollis lectus euismod sodales. Nulla facilisi. Mauris eget scelerisque purus, non dignissim massa. Nunc libero nunc, consequat non mi et, commodo condimentum tellus.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
@@ -532,7 +529,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 
 
 <div class="container text-center mb-6">
-    <a href="#!" class="btn btn-success btn-lg">SEE MORE</a>
+    <a href="/categories" class="btn btn-success btn-lg"><?php echo getTranslatedText('SEE_MORE');?></a>
 </div>
 
 <hr class="hr hr-blurry mb-6" />
