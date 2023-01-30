@@ -142,6 +142,7 @@ initLanguage();
                   <th scope="col" class="text-center">Name</th>
                   <th scope="col" class="text-center">Email</th>
                   <th scope="col" class="text-center">Role</th>
+                  <th scope="col" class="text-center">Password</th>
                   <th scope="col" class="text-center">Edit user</th>
                   <th scope="col" class="text-center">Remove user</th>
                 </tr>
@@ -155,6 +156,7 @@ initLanguage();
                         <td class='text-center'>{$row["name"]}</td>
                         <td class='text-center'>{$row["email"]}</td>
                         <td class='text-center'>{$row["role"]}</td>
+                        <td class='text-center'>*******</td>
                         
                         <td class='text-center'>
                             <button type='button' class='btn btn-success edit-btn'>Edit</button>
@@ -228,6 +230,7 @@ initLanguage();
   <!-- Jquery -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
