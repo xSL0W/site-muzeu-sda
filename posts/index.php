@@ -262,21 +262,24 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
 
 
 <!--
-          $$\                                                         $$\                                             $$\                     
-          $$ |                                                        $$ |                                            \__|                    
- $$$$$$$\ $$$$$$$\   $$$$$$\  $$\  $$\  $$\        $$$$$$$\ $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  $$\  $$$$$$\   $$$$$$$\ 
-$$  _____|$$  __$$\ $$  __$$\ $$ | $$ | $$ |      $$  _____|\____$$\\_$$  _|  $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$ |$$  __$$\ $$  _____|
-\$$$$$$\  $$ |  $$ |$$ /  $$ |$$ | $$ | $$ |      $$ /      $$$$$$$ | $$ |    $$$$$$$$ |$$ /  $$ |$$ /  $$ |$$ |  \__|$$ |$$$$$$$$ |\$$$$$$\  
- \____$$\ $$ |  $$ |$$ |  $$ |$$ | $$ | $$ |      $$ |     $$  __$$ | $$ |$$\ $$   ____|$$ |  $$ |$$ |  $$ |$$ |      $$ |$$   ____| \____$$\ 
-$$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$$$$$$$\ \$$$$$$$ |\$$$$$$  |$$ |      $$ |\$$$$$$$\ $$$$$$$  |
-\_______/ \__|  \__| \______/  \_____\____/        \_______|\_______|  \____/  \_______| \____$$ | \______/ \__|      \__| \_______|\_______/ 
-                                                                                        $$\   $$ |                                            
-                                                                                        \$$$$$$  |                                            
-                                                                                         \______/                                             
+          $$\                                                                     $$\                                 
+          $$ |                                                                    $$ |                                
+ $$$$$$$\ $$$$$$$\   $$$$$$\  $$\  $$\  $$\        $$$$$$\   $$$$$$\   $$$$$$$\ $$$$$$\    $$$$$$$\                   
+$$  _____|$$  __$$\ $$  __$$\ $$ | $$ | $$ |      $$  __$$\ $$  __$$\ $$  _____|\_$$  _|  $$  _____|                  
+\$$$$$$\  $$ |  $$ |$$ /  $$ |$$ | $$ | $$ |      $$ /  $$ |$$ /  $$ |\$$$$$$\    $$ |    \$$$$$$\                    
+ \____$$\ $$ |  $$ |$$ |  $$ |$$ | $$ | $$ |      $$ |  $$ |$$ |  $$ | \____$$\   $$ |$$\  \____$$\                   
+$$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      $$$$$$$  |\$$$$$$  |$$$$$$$  |  \$$$$  |$$$$$$$  |                  
+\_______/ \__|  \__| \______/  \_____\____/       $$  ____/  \______/ \_______/    \____/ \_______/                   
+                                                  $$ |                                                                
+                                                  $$ |                                                                
+                                                  \__|                                                                                                    
 -->
 
+<div class="container mb-6">
+    <a href="/categories" class="btn btn-info btn-md">Go Back</a>
+</div>
 
-<div class="container text-center mb-4">
+<div class="container mb-4">
   <h2 class="mb-1 white-text fw-bold">Cateva din exponatele noastre...</h2>
   <h4 class="mb-6 primary-text fw-bold">Te asteptam in locatie pentru a le vedea pe toate!</h3>
   <?php
@@ -297,10 +300,10 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
     $category = $purifier->purify($category);
   }
 
-  echo "category= " . $category . " id=" . GET_CATEGORY_ID_BY_URLNAME($db, $category);
+  echo "category= " . $category . " id=" . GET_CATEGORY_ID_BY_URL($db, $category, $lang);
 
 
-  if(!empty($category) && (GET_CATEGORY_ID_BY_URLNAME($db, $category)) > 0)
+  if(!empty($category) && (GET_CATEGORY_ID_BY_URL($db, $category, $lang)) > 0)
   {
   
     $query = QUERY_GET_POSTS($db, $lang, $category);
@@ -316,10 +319,10 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
           <div class="card mb-6" >
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
               <img src="<?php echo $posts['image_path']?>" class="img-fluid"/>
-              <a href="<?php echo "/posts/view.php?category=".$category."&name=".$posts['url_title']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+              <a href="<?php echo "/posts/view.php?category=".$category."&post=".$posts['url_title']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
             </div>
             <div class="card-body">
-              <a href="<?php echo "/posts/view.php?category=".$category."&name=".$posts['url_title']?>"><h5 class="card-title fw-underline"><?php echo $posts['title']?></h5></a>
+              <a href="<?php echo "/posts/view.php?category=".$category."&post=".$posts['url_title']?>"><h5 class="card-title fw-underline"><?php echo $posts['title']?></h5></a>
               <hr class="hr hr-blurry mb-3" />
               <p class="card-text text-muted"><?php echo $posts['description'] ?></p>
               <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
@@ -341,6 +344,10 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
   </div>
 <?php
 } else echo "<h1 class='text-danger fw-bold'>ERROR: Category is invalid.</h1>"; ?>
+</div>
+
+<div class="container mb-6">
+    <a href="/categories" class="btn btn-info btn-md">Go Back</a>
 </div>
 
 <hr class="hr hr-blurry mb-6" />

@@ -275,8 +275,11 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
                                                                                          \______/                                             
 -->
 
+<div class="container mb-6">
+    <a href="/" class="btn btn-info btn-md">Go Back</a>
+</div>
 
-<div class="container text-center mb-4">
+<div class="container mb-4">
   <h2 class="mb-1 white-text fw-bold">Categorii exponate</h2>
   <h4 class="mb-6 primary-text fw-bold">Apasa pe una dintre ele pentru a vedea mai multe</h3>
   <?php
@@ -318,6 +321,9 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
   </div>
 </div>
 
+<div class="container mb-6">
+    <a href="/" class="btn btn-info btn-md">Go Back</a>
+</div>
 
 <hr class="hr hr-blurry mb-6" />
 
