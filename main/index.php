@@ -364,28 +364,10 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
       </div>
 
       <div class="col-md-6 gx-5 mb-6 ">
-        <h4><strong>Facilis consequatur eligendi</strong></h4>
+        <h4 class="text-decoration-underline"><strong><?php echo getTranslatedText('TITLE_HALF_1');?></strong></h4>
 
         <p class="text-muted d-flex justify-content-center align-items-center h-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          consequatur eligendi quisquam doloremque vero ex debitis
-          veritatis placeat unde animi laborum sapiente illo possimus,
-          commodi dignissimos obcaecati illum maiores corporis.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          itaque voluptate nesciunt laborum incidunt. Officia, quam
-          consectetur. Earum eligendi aliquam illum alias, unde optio
-          accusantium soluta, iusto molestiae adipisci et?
-
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-           consequatur eligendi quisquam doloremque vero ex debitis
-           veritatis placeat unde animi laborum sapiente illo possimus,
-           commodi dignissimos obcaecati illum maiores corporis.
-
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-           itaque voluptate nesciunt laborum incidunt. Officia, quam
-           consectetur. Earum eligendi aliquam illum alias, unde optio
-           accusantium soluta, iusto molestiae adipisci et?
+        <?php echo getTranslatedText('INFO_HALF_1');?>
          </p>
       </div>
     </div>
@@ -408,27 +390,9 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
 
 
       <div class="col-md-6 gx-5 mb-6">
-        <h4><strong>Facilis consequatur eligendi</strong></h4>
+        <h4 class="text-decoration-underline"><strong><?php echo getTranslatedText('TITLE_HALF_2');?></strong></h4>
         <p class="text-muted d-flex justify-content-center align-items-center h-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          consequatur eligendi quisquam doloremque vero ex debitis
-          veritatis placeat unde animi laborum sapiente illo possimus,
-          commodi dignissimos obcaecati illum maiores corporis.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          itaque voluptate nesciunt laborum incidunt. Officia, quam
-          consectetur. Earum eligendi aliquam illum alias, unde optio
-          accusantium soluta, iusto molestiae adipisci et?
-
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-           consequatur eligendi quisquam doloremque vero ex debitis
-           veritatis placeat unde animi laborum sapiente illo possimus,
-           commodi dignissimos obcaecati illum maiores corporis.
-
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-           itaque voluptate nesciunt laborum incidunt. Officia, quam
-           consectetur. Earum eligendi aliquam illum alias, unde optio
-           accusantium soluta, iusto molestiae adipisci et?
+          <?php echo getTranslatedText('INFO_HALF_2');?>
          </p>
       </div>
 
@@ -465,10 +429,10 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           </a>
         </div>
         <div class="card-body">
-          <h5 class="card-title fw-underline">Card title</h5>
+          <h5 class="card-title fw-underline">Echipamente analogice</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Nam tellus eros, finibus at libero vitae, luctus ultrices ex. Vestibulum mollis massa arcu. Quisque feugiat orci et nulla pretium scelerisque. Quisque ultricies mauris eget tempor vestibulum. Donec in enim vitae urna viverra rhoncus. Etiam vitae urna sit amet orci tempus tincidunt at nec justo. Vivamus maximus velit ut lacus semper, id ornare libero pharetra. Curabitur pharetra ac leo vitae dignissim. Suspendisse nec hendrerit est. Nullam eu ultrices felis, quis posuere leo. Nam eget mauris ut mauris tempus molestie ut id ligula.</p>
+          <p class="card-text text-muted">Echipamentele analogice din anii 1900 erau foarte diferite faţă de tehnologia modernă. Acestea includeau radiouri cu tuburi valvulare, magnetofoane cu bandă, telefoane cu disc şi telegrafe cu fir. Radiourile erau mari şi grele, având nevoie de tuburi valvulare pentru a recepta şi amplifica semnalele radio. Magnetofoanele cu bandă erau utilizate pentru înregistrarea şi redarea sunetelor şi erau alimentate manual sau electric. Telefoanele cu disc erau utilizate pentru comunicaţii telefonice şi funcţionau prin învârtirea unui disc pentru a genera sunete. Telegrafele cu fir erau utilizate pentru transmiterea mesajelor prin codul Morse şi erau alimentate de baterii sau generatoare.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
@@ -489,10 +453,10 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           </a>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">Radio</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Donec augue enim, maximus et leo vel, laoreet iaculis dolor. Donec id dignissim dolor, at consequat nibh. Duis sit amet finibus metus, id iaculis enim. Phasellus ornare ipsum sit amet ornare congue. Mauris accumsan neque et massa mollis, at laoreet velit sodales. Etiam mollis neque molestie, rhoncus nisi volutpat, luctus nunc. Suspendisse efficitur, dui id porttitor porttitor, ante justo ultricies justo, dignissim congue purus diam ut nunc. Sed posuere faucibus bibendum. Nam ac justo mollis, feugiat quam id, lacinia ante.</p>
+          <p class="card-text text-muted">Radiourile din anii 1900 erau echipamente mari şi grele, cu aspecte şi funcţionare diferite de radiourile moderne. Acestea erau alimentate cu tuburi valvulare, care aveau rolul de a recepta şi amplifica semnalele radio. Acestea erau alimentate prin cabluri sau baterii şi erau utilizate pentru a asculta programe radio în direct sau înregistrate. Controalele erau simple, cu butoane pentru reglarea volumului şi a frecvenţei, iar design-ul era elegant, cu carcase din lemn, dar şi volumul era mic, făcându-le nepotrivite pentru utilizarea în spaţii mari sau pentru mulţi ascultători. În concluzie, radiourile din acea perioadă erau un pas important în evoluţia tehnologiei radio şi au făcut posibilă accesul la informaţii şi divertisment la nivel global.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>
@@ -513,10 +477,10 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |  $$ | $$ |$$\
           </a>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">Microfon</h5>
           <hr class="hr hr-blurry mb-3" />
 
-          <p class="card-text text-muted">Praesent pharetra ac nisi eu interdum. Sed dapibus sem eu consectetur dictum. Nullam eget orci vulputate, porta ex in, fringilla tellus. Suspendisse egestas mollis lectus euismod sodales. Nulla facilisi. Mauris eget scelerisque purus, non dignissim massa. Nunc libero nunc, consequat non mi et, commodo condimentum tellus.</p>
+          <p class="card-text text-muted">Microfoanele din anii 1900 erau echipamente mai primitive decât microfoanele moderne. Acestea erau alimentate prin cabluri sau baterii şi erau utilizate pentru a capta şi amplifica sunetele. Majoritatea microfoanelor erau de tip carbon, care funcţionau prin comprimarea şi decompresia granulelor de carbon pentru a modula curentul electric şi astfel, pentru a transmite sunetul. Acestea erau utilizate în sisteme de transmisie a sunetului, cum ar fi telefoane şi magnetofoane, şi erau şi ele mari şi grele, comparativ cu microfoanele moderne. În acea perioadă, microfoanele erau un pas important în evoluţia tehnologiei audio şi au permis transmiterea sunetelor la distanţe mari şi înregistrarea acestora.</p>
           <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
         </div>
       </div>

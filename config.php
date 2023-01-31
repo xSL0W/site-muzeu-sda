@@ -5,7 +5,7 @@ define('DB_SERVER', '127.0.0.1');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'muzeu');
- 
+define('SITE_URL', 'http://127.0.0.1');
 
 
 function mysqli_start()

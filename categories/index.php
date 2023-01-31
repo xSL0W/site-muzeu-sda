@@ -300,9 +300,9 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
             <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
           </div>
           <div class="card-body">
-            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"><h5 class="card-title fw-underline"><?php echo $categories['name']?></h5></a>
+            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"><h5 class="card-title fw-underline"><?php echo $categories['title']?></h5></a>
             <hr class="hr hr-blurry mb-3" />
-            <p class="card-text text-muted"><?php echo $categories['text'] ?></p>
+            <p class="card-text text-muted"><?php echo $categories['description'] ?></p>
             <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
           </div>
         </div>

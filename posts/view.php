@@ -334,11 +334,11 @@ $$\    $$\ $$\  $$$$$$\  $$\  $$\  $$\        $$$$$$\   $$$$$$\   $$$$$$$\ $$$$$
                    <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
                      <i class="fab fa-twitter"></i>
                    </button>
-                   <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
-                     <i class="fab fa-linkedin"></i>
+                   <button type="button" class="btn btn-primary px-3 me-1" style="background-color: green;">
+                     <i class="fab fa-whatsapp"></i>
                    </button>
-                   <button type="button" class="btn btn-primary px-3 me-1">
-                     <i class="fas fa-comments"></i>
+                   <button type="button" class="btn btn-primary px-3 me-1" style="background-color: purple;">
+                     <i class="fab fa-instagram"></i>
                    </button>
                  </div>
                </div>

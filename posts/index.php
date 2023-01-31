@@ -300,7 +300,7 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      $$$$$$$  |\$$$$$$  |$$$$$$$  |
     $category = $purifier->purify($category);
   }
 
-  echo "category= " . $category . " id=" . GET_CATEGORY_ID_BY_URL($db, $category, $lang);
+ // echo "category= " . $category . " id=" . GET_CATEGORY_ID_BY_URL($db, $category, $lang);
 
 
   if(!empty($category) && (GET_CATEGORY_ID_BY_URL($db, $category, $lang)) > 0)
