@@ -36,7 +36,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
-    <link rel="icon" href="../assets/img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../logo.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"

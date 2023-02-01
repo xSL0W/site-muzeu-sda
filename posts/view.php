@@ -11,7 +11,11 @@ require_once($root."/language.php");
 
 initLanguage();
 
-//echo getLanguage();
+if (isset($_POST["editmode"])) 
+{ 
+  $_SESSION['editmode'] = !$_SESSION["editmode"];
+  //echo $_SESSION["editmode"];
+}
 
 ?>
 
@@ -37,8 +41,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
-    <link rel="icon" href="../assets/img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
+    <link rel="icon" href="../logo.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -48,9 +51,30 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/ui/trumbowyg.min.css" />
+
     <!-- MDB -->
     <link rel="stylesheet" href="../assets/css/mdb.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+
+    <!-- Axios -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- CKEditor implementation -->
+
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/trumbowyg.min.js"></script>
+
+    <script src="trumbowyg/plugins/upload/trumbowyg.upload.min.js"></script>
 
   </head>
   <body class="bg-darkgray">
@@ -94,7 +118,7 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
           <a class="nav-link white-text" href="/main"><i class="white-text fa-sharp fa-solid fa-house me-1"></i><?php echo getTranslatedText('BTN_HOME');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link white-text" href="/categorii"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
+          <a class="nav-link white-text" href="/categories"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link white-text" href="/despre-noi"><i class="white-text fa-solid fa-address-card me-1"></i><?php echo getTranslatedText('BTN_ABOUT_US');?></a>
@@ -102,6 +126,14 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
         <li class="nav-item">
           <a class="nav-link white-text" href="#maps"><i class="white-text fa-solid fa-location-dot me-1"></i><?php echo getTranslatedText('BTN_LOCATION');?></a>
         </li>        
+        <?php if(isLoggedIn() && isAdmin()) {?>
+        <li class="nav-item">   
+        <form action="" method="post">
+            <input type="hidden" name="editmode" value="1">
+            <input class="btn btn-warning btn-sm me-2" type="submit" name="submit" value="Edit Mode"> 
+        </form>   
+        </li>  
+        <?php }?>        
       </ul>
       <!-- Left links -->
     </div>
@@ -322,7 +354,7 @@ $$\    $$\ $$\  $$$$$$\  $$\  $$\  $$\        $$$$$$\   $$$$$$\   $$$$$$$\ $$$$$
            <h2 class="mb-6 white-text fw-bold text-decoration-underline"><?php echo $post['title'];?></h2>
              <!--Section: Post data-mdb-->
              <section class="border-bottom mb-4">
-               <img src="<?php echo $post['image_path'];?>" class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+               <img style="height:50vh;" src="<?php echo $post['image_path'];?>" class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
    
                <div class="row align-items-center mb-4">
                  <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0"></div>
@@ -346,6 +378,42 @@ $$\    $$\ $$\  $$$$$$\  $$\  $$\  $$\        $$$$$$\   $$$$$$\   $$$$$$$\ $$$$$
              <!--Section: Post data-mdb-->
                 <?php echo $post['content']; ?>
              <!--Section: Text-->
+
+
+
+             <?php if($_SESSION["editmode"]) { ?>
+            
+            <hr class="hr hr-blurry mb-6" />
+
+          <form action="saveChanges.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+            New title:
+            <input class="bg-info white-text form-control" type="text" id="title" name="title" value="<?php echo $post['title']; ?>">
+            <br>
+            New Image:
+            <input type="file" name="image" class="imageInput" id="imageInput<?php echo $id; ?>">
+            <br><br>
+            New description:
+            <textarea id= 'editorDesc' name='description'><?php echo $post['description']; ?></textarea>
+            <script>
+            $('#editorDesc').trumbowyg();
+            </script>
+
+            <br><br>
+            New content:
+            <textarea id= 'editorContent' name='content'><?php echo $post['content']; ?></textarea>
+            <script>
+            $('#editorContent').trumbowyg();
+            </script>
+
+            <input class="btn btn-primary bg-success" type="submit" name="submit" value="Submit">
+          </form> 
+
+           <?php } ?>
+
+
+
+
            </div>
          </div>
        </div>

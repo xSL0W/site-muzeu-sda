@@ -6,37 +6,41 @@ session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once($root."/config.php");
 require_once($root."/funcs.php");
+
+if(!isLoggedIn() || !isAdmin())
+{
+    header("Location: /");
+    die();
+}
+
+
 $db = mysqli_start();
 
 
 $postId = $_POST['id'];
 $title = $_POST['title'];
 $description = $_POST['description'];
-$image = $_POST['image_url']; // $_FILES SAU URL
+$image = $_FILES['image'];
 
-echo $title." ".$description." ".$image;
+//echo $title." ".$description." ".$image;
 
-return;
+//return;
 $imagePath = 'img/' . time() . '-' . $image['name'];
 
 move_uploaded_file($image['tmp_name'], $imagePath);
 
-$imagePath = "/editor2/".$imagePath; // nu incerca sa intelegi logica si sa stergi linia asta pentru ca vei regreta
+$imagePath = "/categories/".$imagePath; // nu incerca sa intelegi logica si sa stergi linia asta pentru ca vei regreta
 
 
 
-//echo "Post ID: $postId\nTitle: $title\nText: $description\nImage Path: $imagePath";
-
-
-if ($image['name'] == null) 
-{
-  savePostNoImg($postId, $title, $description, $db);
-} 
-else 
+if ($image['name'] != null) 
 {
   savePost($postId, $title, $description, $imagePath, $db);
 }
-  
+else
+{
+  savePostNoImg($postId, $title, $description, $db);
+}
 
 function savePost($postId, $title, $description, $imagePath , $db)
 {
@@ -53,3 +57,4 @@ function savePostNoImg($postId, $title, $description, $db)
 }
 
 mysqli_stop($db);
+header('Location: ' . $_SERVER['HTTP_REFERER']);

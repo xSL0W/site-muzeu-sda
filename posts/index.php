@@ -37,7 +37,7 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title><?php echo getTranslatedText('SITE_TITLE');?></title>
     <!-- MDB icon -->
-    <link rel="icon" href="../assets/img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../logo.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -94,7 +94,7 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
           <a class="nav-link white-text" href="/main"><i class="white-text fa-sharp fa-solid fa-house me-1"></i><?php echo getTranslatedText('BTN_HOME');?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link white-text" href="/categorii"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
+          <a class="nav-link white-text" href="/categories"><i class="white-text fa-solid fa-list me-1"></i><?php echo getTranslatedText('BTN_EXHIBITS');?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link white-text" href="/despre-noi"><i class="white-text fa-solid fa-address-card me-1"></i><?php echo getTranslatedText('BTN_ABOUT_US');?></a>
