@@ -34,6 +34,12 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 // Include config file
 require_once "config.php";
+
+require_once("assets/lib/htmlpurifier/library/HTMLPurifier.auto.php");
+
+// HTML Purifer (sanitizer)
+$config = HTMLPurifier_Config::createDefault();
+$purifier = new HTMLPurifier($config);
  
 // Define variables and initialize with empty values
 $email = $password = $email_err = $password_err = $login_err = "";
@@ -60,6 +66,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     {
       $password = trim($_POST["password"]);
     }
+
+    $email = $purifier->purify($email);
+    $password = $purifier->purify($password );
 
     // Validate credentials
     if(empty($email_err) && empty($password_err))
