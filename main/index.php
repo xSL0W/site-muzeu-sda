@@ -202,7 +202,6 @@ $$ |  $$ |\$$$$$$$\ $$ |      \$$$$$$  |
 <header>
     <!-- Carousel wrapper -->
     <div id="introCarousel" class="mb-8 carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
-
       <!-- Inner -->
       <div class="carousel-inner">
         <!-- Single item -->

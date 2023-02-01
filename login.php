@@ -99,7 +99,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;      
                             $_SESSION["name"] = $name;
-                            $_SESSION["role"] = $role;                   
+                            $_SESSION["role"] = $role;    
+                            $_SESSION["editmode"] = false;               
                             
                             // Redirect user to welcome page
                             header("location: /index.php");

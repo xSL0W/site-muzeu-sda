@@ -11,7 +11,13 @@ require_once($root."/language.php");
 
 initLanguage();
 
-//echo getLanguage();
+
+if (isset($_POST["editmode"])) 
+{ 
+  $_SESSION['editmode'] = !$_SESSION["editmode"];
+  //echo $_SESSION["editmode"];
+}
+
 
 ?>
 
@@ -48,13 +54,31 @@ $$ |  $$ |$$$$$$$$\ $$ |  $$ |$$$$$$$  |
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/ui/trumbowyg.min.css" />
+
     <!-- MDB -->
     <link rel="stylesheet" href="../assets/css/mdb.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 
-      <!-- Editor styles -->
+    <!-- MDB -->
+    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/scripts.js"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/ui/trumbowyg.min.css" />
+
+    <!-- Axios -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- CKEditor implementation -->
+
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/trumbowyg.min.js"></script>
+
+    <script src="trumbowyg/plugins/upload/trumbowyg.upload.min.js"></script>
+
 
   </head>
   <body class="bg-darkgray">
@@ -105,7 +129,15 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
         </li>
         <li class="nav-item">
           <a class="nav-link white-text" href="#maps"><i class="white-text fa-solid fa-location-dot me-1"></i><?php echo getTranslatedText('BTN_LOCATION');?></a>
-        </li>        
+        </li>  
+        <?php if(isLoggedIn() && isAdmin()) {?>
+        <li class="nav-item">   
+        <form action="" method="post">
+            <input type="hidden" name="editmode" value="1">
+            <input class="btn btn-warning btn-sm me-2" type="submit" name="submit" value="Edit Mode"> 
+        </form>   
+        </li>  
+        <?php }?>
       </ul>
       <!-- Left links -->
     </div>
@@ -144,8 +176,7 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
       <div class="dropdown">
         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-          <img src="<?php echo getAvatar();?>" class="rounded-circle" height="25"
-               alt="Black and White Portrait of a Man" loading="lazy" />
+          <img src="<?php echo getAvatar();?>" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
           <?php 
@@ -160,18 +191,14 @@ $$ | \$$ |\$$$$$$$ |  \$  /   $$$$$$$  |\$$$$$$$ |$$ |
           <li>
             <a class="dropdown-item" href="/logout.php">Logout</a>
           </li>
-          
+  
           <?php
           }
           else 
           { ?>
-
-
           <li>
             <a class="dropdown-item" href="/login.php">Login</a>
           </li>
-
-
           <?php } ?>
         </ul>
       </div>
@@ -279,9 +306,6 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
                                                                                          \______/                                             
 -->
 
-
-
-
 <div class="container mb-6">
     <a href="/" class="btn btn-info btn-md">Go Back</a>
 </div>
@@ -297,27 +321,58 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
 
   while ($categories = mysqli_fetch_assoc($query)) 
   { 
+    $image_path = $categories['image_path'];
+    $url_name = $categories['url_name'];
+    $title = $categories['title'];
+    $description = $categories['description'];
+    $id = $categories['id'];
+
     if($count == 0 || $count % 3 == 0) {  ?> <div class="row"> <?php } // open row div at start/every 3 items?> 
       <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        
 
         <!-- Card -->
         <div class="card mb-6" >
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="<?php echo $categories['image_path']?>" class="img-fluid"/>
-            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
+            <img src="<?php echo $image_path?>" class="img-fluid"/>
+            <a href="<?php echo "/posts/index.php?category=".$url_name?>"> <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div></a>
           </div>
           <div class="card-body">
-            <a href="<?php echo "/posts/index.php?category=".$categories['url_name']?>"><h5 class="card-title fw-underline"><?php echo $categories['title']?></h5></a>
+            <a href="<?php echo "/posts/index.php?category=".$url_name?>"><h5 class="card-title fw-underline"><?php echo $title?></h5></a>
             <hr class="hr hr-blurry mb-3" />
-            <p class="card-text text-muted">
-            <?php echo $categories['description'] ?></p>
+            <p class="card-text text-muted"><?php echo $description ?></p>
+            <!--<a href="#!" class="btn btn-info btn-rounded">Button</a>-->
+            
+            <?php if($_SESSION["editmode"]) { ?>
+            
+            <hr class="hr hr-blurry mb-6" />
+
+          <form action="saveChanges.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            New title:
+            <input class="bg-info white-text form-control" type="text" id="title" name="title" value="<?php echo $title; ?>">
+            <br>
+            New Image URL:
+            <input class="bg-info white-text form-control" type="text" id="image_url" name="image_url" value="<?php echo $image_path; ?>">
+            <br><br>
+            New description:
+            <textarea id= 'editor<?php echo $id; ?>' name='description'><?php echo $description ?></textarea>
+            <script>
+            $('#editor<?php echo $id; ?>').trumbowyg();
+            </script>
+
+            <input class="btn btn-primary bg-success" type="submit" name="submit" value="Submit">
+          </form> 
+
+           <?php } ?>
+
           </div>
         </div>
         <!-- Card -->
       </div>
+      <?php 
+      $count++; 
 
-    <?php
-    $count++;
     if($count % 3 == 0) {?> </div> <?php } // close the row div every 3 items
    } // closing while loop
 
@@ -331,6 +386,15 @@ $$$$$$$  |$$ |  $$ |\$$$$$$  |\$$$$$\$$$$  |      \$$$$$$$\\$$$$$$$ | \$$$$  |\$
 <div class="container mb-6">
     <a href="/" class="btn btn-info btn-md">Go Back</a>
 </div>
+
+
+
+
+
+
+
+
+
 
 <hr class="hr hr-blurry mb-6" />
 
@@ -487,18 +551,8 @@ $$ |   \$$$$$$  |\$$$$$$  | \$$$$  |\$$$$$$$\ $$ |
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
-
-<!-- MDB -->
-<script type="text/javascript" src="../assets/js/mdb.min.js"></script>
-<!-- Custom scripts -->
-<script type="text/javascript" src="js/scripts.js"></script>
-
-<!-- JQUERY -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Axios -->
-<script src=" https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-</body>
-
+  </body>
 </html>
+
+
+<!-- Footer -->
